@@ -24,41 +24,24 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 		cout<<"\n";
 }
 
-void solve2()//fail onno approach e try korbo frequency approach
+void solve()
 {
-    int n , k;
-    cin >> n >> k;
-    string s[n];
-    int cnt = 0;
-    int i , j;
-    for( i = 0 ; i < n; i++)
+    string s,p;
+    cin >> s;
+    int k = sz(s);
+
+    for(int i = 0 ;i < k ; i++)
     {
-        cin >> s[i];
-        
-         sort(all(s[i]));
-    }
-
-    for( i = 0; i < n; i++)
-    {
-        bool f = true;
-        for( j = 0; j < sz(s[i]) ; j++)
+        if(s[i] == '0') p.pb('0');
+        else if(s[i] == '1') p.pb('1');
+        else if(s[i] == 'B' && sz(p) != 0)
         {
-            if(sz(s[i])  <= k) f = false;
-            if((s[i][j] - '0') != j )
-            {
-                f = false;
-                break;
-            }
-                if(j == k ) break;
+            
+            p.pop_back();
         }
-        if(f)
-        {
-
-            cnt++;
-        }
-
+       // cout << s[i] << " ";
     }
-    cout << cnt;
+    cout << p;
 
 
 

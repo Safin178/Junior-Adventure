@@ -37,6 +37,7 @@ void solve()
    int  min = -1, pos=-2;
     for(int i = 0 ;i < n ; i++)
     {
+
         if(a[i] <= t)
         {
             if(b[i] > min)
@@ -45,6 +46,7 @@ void solve()
                 pos = i;
             }
         }
+        t--;
     }
     cout << pos+1 << endll;
 
