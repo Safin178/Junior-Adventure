@@ -1,4 +1,5 @@
-# Junior-Adventure
+# Rating Rocket
+
 Junior Training Sheet 
 
 simple jinish : junior sheet er code gula rakbo 
