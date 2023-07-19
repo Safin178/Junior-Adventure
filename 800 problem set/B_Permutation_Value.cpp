@@ -28,17 +28,12 @@ void solve()
 {
     int n;
     cin >> n;
-    vi v(n);
-    forcin(v);
-    int cnt = 0;
-    for(int i = 0 ; i < sz(v) ; i++)
+    for(int i = 0; i < (n/2);i++)
     {
-        if(v[i] == 1) cnt++;
+        cout << i+1 << " " << n-i << " ";  
     }
-
-    cout << n-(cnt/2)  << nl;
-
-
+    if(n % 2 != 0) cout << (n/2)+1 ;
+    cout << nl;
 
 
 }
