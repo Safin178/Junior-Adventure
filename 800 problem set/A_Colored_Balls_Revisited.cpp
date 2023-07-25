@@ -26,26 +26,13 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-    string s;
-    cin >> s;
-    char c;
-    cin >> c;
+    int n;;
+    cin >> n;
+    vi v(n);
+    forcin(v);
 
-    bool f = false;
-
-    for(int i = 0 ; i < sz(s); i++)
-    {
-        if(s[i] == c && i % 2 == 0)
-        {
-            f = true;
-        }
-    }
-    if(f)
-    {
-        yesR;
-
-    }
-    no;
+    vit it  = max_element(all(v));
+    cout << it - v.begin()+1 << nl;
 
 
 

@@ -26,26 +26,18 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-    string s;
-    cin >> s;
-    char c;
-    cin >> c;
-
-    bool f = false;
-
-    for(int i = 0 ; i < sz(s); i++)
+    ll a , b, c, x, y;
+    cin >> a >> b >> c;
+    cin >> x >> y;
+    x = x- min(x,a);
+    y = y - min(y,b);
+    ll  sum = x + y;
+    if(sum > c)
     {
-        if(s[i] == c && i % 2 == 0)
-        {
-            f = true;
-        }
-    }
-    if(f)
-    {
-        yesR;
+        noR;
 
     }
-    no;
+    yesR;
 
 
 

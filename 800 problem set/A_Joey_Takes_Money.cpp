@@ -26,27 +26,17 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-    string s;
-    cin >> s;
-    char c;
-    cin >> c;
+    int n; cin >> n;
+    vi v(n);
+    forcin(v);
 
-    bool f = false;
+    ll sum = 1;
 
-    for(int i = 0 ; i < sz(s); i++)
+    for(int i = 0; i < sz(v); i++)
     {
-        if(s[i] == c && i % 2 == 0)
-        {
-            f = true;
-        }
+        sum *= v[i];
     }
-    if(f)
-    {
-        yesR;
-
-    }
-    no;
-
+    cout << 1ll * (sum + (n-1))*2022 << nl;
 
 
 }

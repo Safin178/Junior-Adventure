@@ -26,26 +26,35 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-    string s;
-    cin >> s;
-    char c;
-    cin >> c;
+    int n;
+    cin >> n;
 
-    bool f = false;
+    vl v(n);
+    forcin(v);
 
-    for(int i = 0 ; i < sz(s); i++)
+    int cnt = 0;
+   
+    for(int i = 0 ; i < sz(v)-1 ; i++)
     {
-        if(s[i] == c && i % 2 == 0)
+        if(v[i] % 2 == 0)
         {
-            f = true;
+            if(v[i+1]% 2 == 0)
+                {
+                    v[i+1] = v[i]*v[i+1];
+                    cnt++;
+                }
+        }
+        else 
+        {
+             if(v[i+1]% 2 != 0)
+                {
+                    v[i+1] = v[i]*v[i+1];
+                    cnt++;
+                }
+
         }
     }
-    if(f)
-    {
-        yesR;
-
-    }
-    no;
+    cout << cnt << nl;
 
 
 
