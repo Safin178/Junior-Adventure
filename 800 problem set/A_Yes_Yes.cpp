@@ -26,13 +26,19 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-    int x;
+    string k ;
+    cin >> k;
     string s;
-    for(int i = 0; i < 33 ; i++)
+    for(int i = 0; i < 20 ; i++)
     {
-        cin >> x >> s;
-        cout << s << " , ";
+        s.pb('Y');
+        s.pb('e');
+        s.pb('s');
     }
+   
+    int x = s.find(k,0);
+    if(x>=0)yes;
+    else no;
 
 
 
@@ -40,7 +46,7 @@ void solve()
 
 int main(){
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

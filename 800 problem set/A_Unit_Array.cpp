@@ -26,13 +26,27 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-    int x;
-    string s;
-    for(int i = 0; i < 33 ; i++)
+    int n; cin >> n;
+    vi v(n);
+    forcin(v);
+    int cmin = 0, cplus = 0, cnt = 0;
+    for(int i = 0 ; i < sz(v); i++)
     {
-        cin >> x >> s;
-        cout << s << " , ";
+        if(v[i] == -1)
+        {
+            cmin++;
+        }
+        else cplus++;
     }
+  
+
+    while(((cmin > cplus) || cmin % 2 != 0) )
+    {
+        cmin--;
+        cplus++; 
+        cnt++;
+    }
+    cout << cnt << nl;
 
 
 
@@ -40,7 +54,7 @@ void solve()
 
 int main(){
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

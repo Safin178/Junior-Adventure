@@ -26,13 +26,28 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
+    //12 min
     int x;
-    string s;
-    for(int i = 0; i < 33 ; i++)
+    string f;
+    int a[4] , b[3] = {0};
+    cin >> x;
+    cin >> a[1] >> a[2] >> a[3];
+    f.pb(x+'0');
+
+    while(1)
     {
-        cin >> x >> s;
-        cout << s << " , ";
+        if(a[x] == 0)
+        {
+            break;
+        }
+        f.pb(a[x]+'0');
+        x = a[x];
     }
+    sort(all(f));
+    if(f == "123")yes;
+    else no;
+  
+
 
 
 
@@ -40,7 +55,7 @@ void solve()
 
 int main(){
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

@@ -26,12 +26,17 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-    int x;
     string s;
-    for(int i = 0; i < 33 ; i++)
+    cin >> s;
+    if(s[0] == 'a')
     {
-        cin >> x >> s;
-        cout << s << " , ";
+        cout << (int)s[1]-'a' << nl;
+    }
+    else{
+        int ans = 25 * (int)(s[0]-'a');
+        ans += (int)(s[1]-'a');
+        if(s[1] < s[0])ans++;
+        cout <<  ans << nl;
     }
 
 
@@ -40,7 +45,7 @@ void solve()
 
 int main(){
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

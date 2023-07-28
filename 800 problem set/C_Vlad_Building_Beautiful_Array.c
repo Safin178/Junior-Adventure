@@ -26,13 +26,26 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-    int x;
-    string s;
-    for(int i = 0; i < 33 ; i++)
+    int n;
+    cin >> n;
+    vi v(n);
+    forcin(v);
+    int min_ev =0, min_odd =0;
+    
+    sort(all(v));
+
+    for(int i =0 ;i < sz(v); i++)
     {
-        cin >> x >> s;
-        cout << s << " , ";
+        if(min_ev > v[i] && v[i] % 2 == 0)
+        {
+            min_ev = v[i];
+        }
+        if(min_odd > v[i] && v[i] % 2 != 0)
+        {
+            min_odd = v[i];
+        }
     }
+    cout << min_ev << nl << min_odd << nl;
 
 
 
@@ -40,7 +53,7 @@ void solve()
 
 int main(){
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }
