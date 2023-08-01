@@ -17,7 +17,7 @@ typedef vector<int> vi;
 #define vit vector<int>::iterator  
 #define forcin(n) for(auto &x : n) cin>>x;
 #define forcout(n) for(auto x : n) cout << x << " ";
-void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec(v) likle hobe
+void printVec (vector<int> v2, string s = "")//vector ke print kore just printVec(v) likle hobe
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
@@ -42,7 +42,7 @@ void solve()
     vi v(n);
     forcin(v);
 
-    bool f = false;
+    bool f = false;//hi
     for(int i = 0 ;i < sz(v)-1; i++)
     {
         if(v[i] != v[i+1])f = true;
