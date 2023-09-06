@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -37,32 +36,21 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-    int n;
-    cin >> n ;
-    vi v(n);
-    forcin(v);
-    int cnt = 0;
+   int n, m;
+   cin >> n >> m;
+   if((n+m) & 1)
+   {
+     cout << "Burenka\n";
+   }
+    else cout << "Tonya\n";
 
-    vit it = min_element(all(v));
-
-
-    for(int i = 0; i < sz(v); i++)
-    {
-        if(*it == v[i])cnt++;
-    }
-    
-    if(cnt >1)
-    {
-        cout << "Still Rozdil"<<nl;
-    }
-    else cout << it-v.begin()+1 << nl;
 
 
 }
 
 int main(){
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

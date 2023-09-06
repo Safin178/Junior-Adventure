@@ -23,16 +23,37 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 			cout<<v2[i]<<" ";
 		cout<<"\n";
 }
+/*        ／＞　　フ
+　　　　　| 　_　 _ |
+　 　　　／` ミ＿Yノ     meow
+　　 　 /　　　 　 |   
+　　　 /　 ヽ　　 ﾉ  
+　 　 │　　|　|　|
+　／￣|　　 |　|　|    
+　| (￣ヽ＿_ヽ_)__)   
+　＼二つ
+*/
 
 void solve()
 {
-    int x;
-    string s;
-    for(int i = 0; i < 33 ; i++)
-    {
-        cin >> x >> s;
-        cout << s << " , ";
-    }
+   int n, m ,d;
+   cin >> n >> m >> d;
+   vi v(m);
+   forcin(v);
+
+   int ans = m-1;
+   int k = m;
+
+   for(int i = 1; i < sz(v)-1; i++)
+   {
+        if(v[i+1] - v[i] >= d)
+        {
+            cout << i << " ";
+        }
+   }
+   cout << nl;
+
+    
 
 
 
@@ -40,7 +61,7 @@ void solve()
 
 int main(){
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }
