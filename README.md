@@ -1,7 +1,5 @@
 # Rating Rocket 🚀
 # This repo contains all of my solve.. 
-My Junior Training Sheet 
-link : https://docs.google.com/spreadsheets/d/1FkTpr6atITIMj3wDxoHJkyLPJAXs2vKB4RkBoNbLK4Q/edit?usp=sharing
 
 ACD ladder problems with customised difficulty level:
 https://docs.google.com/spreadsheets/d/1Rn_ktQ9cjVhYCiwbDLAbZGwcX1-NKO7Jz4OSi4Y0cZ8/edit#gid=0
