@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -25,43 +24,36 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 		cout<<"\n";
 }
 /*        ／＞　　フ
-　　　　　| 　_　 _|
+　　　　　| 　_　 _ |
 　 　　　／` ミ＿Yノ     meow
 　　 　 /　　　 　 |   
 　　　 /　 ヽ　　 ﾉ  
-　 　 │　　|　|　|      
+　 　 │　　|　|　|
 　／￣|　　 |　|　|    
 　| (￣ヽ＿_ヽ_)__)   
 　＼二つ
-    .       ／＞　 フ
-           |   _　_ |   give up?
-          ／` ミ__^ノ 
-         /　　　　 |
-        /　 ヽ　　 ﾉ           ╱|、
-       /　　 |　|　|         (˚ˎ 。7    no.
-   ／￣|　　 |　|　|          |、˜〵          
-   | (￣ヽ＿_ ヽ_)__)        じしˍ,)ノ
-   ＼二)
-      
 */
 
 void solve()
 {
-    ll n;
-    cin >> n;
-   
-    if(n < 0)n = abs(n);
+   int n, k;
+   cin >> n >> k;
 
-    if(n  == 1)
+   int ans = INT32_MIN;
+   int f, t;
+   while(n--)
+   {
+    cin >> f >> t ;
+    int x = f;
+    if(t > k)
     {
-        cout << 2 <<nl;return;
+        x = f -(t - k);
     }
+    ans = max(ans,x);
+   }
+   cout << ans << nl;
 
-    if(n % 3 == 0)
-    {
-        cout << n/3 << nl;
-    }
-    else cout << (n/3)+1 << nl;
+
 
 
 
@@ -69,7 +61,7 @@ void solve()
 
 int main(){
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

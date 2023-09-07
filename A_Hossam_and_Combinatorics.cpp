@@ -52,7 +52,7 @@ void solve()
    }
    if(x == y)
    {
-    cout << n*2 << nl;
+    cout << n*(n-1)<< nl;
     return;
    }
     cout << (cntmax * cntmin) * 2 << nl;

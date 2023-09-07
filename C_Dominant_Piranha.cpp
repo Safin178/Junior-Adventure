@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -25,43 +24,53 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 		cout<<"\n";
 }
 /*        ／＞　　フ
-　　　　　| 　_　 _|
+　　　　　| 　_　 _ |
 　 　　　／` ミ＿Yノ     meow
 　　 　 /　　　 　 |   
 　　　 /　 ヽ　　 ﾉ  
-　 　 │　　|　|　|      
+　 　 │　　|　|　|
 　／￣|　　 |　|　|    
 　| (￣ヽ＿_ヽ_)__)   
 　＼二つ
-    .       ／＞　 フ
-           |   _　_ |   give up?
-          ／` ミ__^ノ 
-         /　　　　 |
-        /　 ヽ　　 ﾉ           ╱|、
-       /　　 |　|　|         (˚ˎ 。7    no.
-   ／￣|　　 |　|　|          |、˜〵          
-   | (￣ヽ＿_ ヽ_)__)        じしˍ,)ノ
-   ＼二)
-      
 */
 
 void solve()
 {
-    ll n;
-    cin >> n;
-   
-    if(n < 0)n = abs(n);
+   int n;
+   cin >> n;
+   vi v(n);
+   forcin(v);
 
-    if(n  == 1)
-    {
-        cout << 2 <<nl;return;
-    }
+   int max = *max_element(all(v));
+   int mini = *min_element(all(v));
+   if(max == mini)
+   {
+    cout << -1 << nl;return;
 
-    if(n % 3 == 0)
-    {
-        cout << n/3 << nl;
-    }
-    else cout << (n/3)+1 << nl;
+   }
+   if(v[0] == max && v[0] > v[1])
+   {
+    cout << 1 << nl;
+    return;
+   }
+   if(v[sz(v)-1] == max && v[sz(v)-1] > v[sz(v)-2])
+   {
+    cout << sz(v) << nl;
+    return;
+   }
+   for(int i = 1; i <sz(v)-1; i++)
+   {
+        if(v[i] == max )
+        {
+            if(v[i-1] < max|| v[i+1] < max)
+            {
+                cout << i+1 << nl;
+                return;
+            }
+        }
+        
+   }
+    
 
 
 
