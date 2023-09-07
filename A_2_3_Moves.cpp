@@ -33,6 +33,16 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 　／￣|　　 |　|　|    
 　| (￣ヽ＿_ヽ_)__)   
 　＼二つ
+
+
+
+
+
+
+
+
+
+
 */
 
 void solve()
