@@ -36,30 +36,23 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-   int n, x;
-   cin >> x >> n;
-   map<int,int> mp;
-   while(n--)
+   map<string,bool> mp;
+   int n;
+   cin >> n;
+   while(n--){
+   string s;
+   cin >> s;
+   
+   if(mp[s])
    {
-        int a, b;
-        cin >> a >> b;
-        mp[a] += b;
-     
+    yes;
+    mp[s] = true;
    }
-   for(auto u : mp)
-   {
-    if(u.first < x) x+= u.second;
-    else 
-    {
-        noR;
-    }
-    
-   }
-   yes;
+   else{ no;mp[s] = true;}
     
 
 
-
+   }
 }
 
 int main(){

@@ -36,26 +36,18 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-   int n, x;
-   cin >> x >> n;
-   map<int,int> mp;
+   int n;
+   cin >> n;
+   vi v;
+   int x, y;
    while(n--)
    {
-        int a, b;
-        cin >> a >> b;
-        mp[a] += b;
-     
+    cin >> x >> y;
+    y--;
+    v.pb(x + (y/2));
    }
-   for(auto u : mp)
-   {
-    if(u.first < x) x+= u.second;
-    else 
-    {
-        noR;
-    }
-    
-   }
-   yes;
+   cout << *min_element(all(v)) << nl;
+   
     
 
 
@@ -64,7 +56,7 @@ void solve()
 
 int main(){
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

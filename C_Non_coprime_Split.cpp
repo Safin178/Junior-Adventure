@@ -36,26 +36,18 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-   int n, x;
-   cin >> x >> n;
-   map<int,int> mp;
-   while(n--)
-   {
-        int a, b;
-        cin >> a >> b;
-        mp[a] += b;
-     
-   }
-   for(auto u : mp)
-   {
-    if(u.first < x) x+= u.second;
-    else 
+  int x, y, k;
+    cin >> x >> y;
+    for(int j = y ;j>=x;j--){
+    for(int i = j/2 ; i < j ; i++)
     {
-        noR;
-    }
-    
-   }
-   yes;
+        if(__gcd(i,j-i)!= 1)
+        {
+            cout << i << " "<< j-i<<nl;
+            return;
+        }
+   }}
+cout << -1<<nl;
     
 
 
@@ -64,7 +56,7 @@ void solve()
 
 int main(){
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

@@ -36,27 +36,34 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
-   int n, x;
-   cin >> x >> n;
-   map<int,int> mp;
-   while(n--)
+   int n;
+   cin >> n;
+   vi v(n);
+   forcin(v);
+
+   map<int, int> mp;
+   for(auto u : v)
    {
-        int a, b;
-        cin >> a >> b;
-        mp[a] += b;
-     
+    mp[u]++;
    }
+   
+   int m = INT32_MAX;
+
    for(auto u : mp)
    {
-    if(u.first < x) x+= u.second;
-    else 
-    {
-        noR;
-    }
     
+    m = min(m, u.second);
    }
-   yes;
-    
+   ll sum = m;
+  // cout << m << nl;
+   for(auto u : mp)
+   {
+        //cout << m << " " << u.second << nl;
+        if(m < u.second)
+          sum += (u.second-m);
+
+   }
+    cout << sum << nl;
 
 
 
