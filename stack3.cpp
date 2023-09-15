@@ -1,3 +1,4 @@
+// Bismillahir Rahmanir Raheem
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -11,12 +12,14 @@ typedef vector<int> vi;
 #define nl '\n'
 #define yes cout<<"YES\n"
 #define no cout<<"NO\n"
-#define yesR cout<<"YES\n";return;
-#define noR cout<<"NO\n";return;
+#define yesR {cout<<"YES\n";return;}
+#define noR {cout<<"NO\n";return;}
 #define vit vector<int>::iterator  
 #define forcin(n) for(auto &x : n) cin>>x;
 #define forcout(n) for(auto x : n) cout << x << " ";
-void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec(v) likle hobe
+#define bismillah ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ever ;1;
+void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
@@ -33,35 +36,40 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 　| (￣ヽ＿_ヽ_)__)   
 　＼二つ
 */
-
 void solve()
 {
-   int n;
-   cin >> n;
-   vi v(n);
-   forcin(v);
-
-   map<int, int> mp;
-   for(auto u : v)
-   {
-    mp[u]++;
-   }
-   
-   int m = INT32_MIN;
-
-   for(auto u : mp)
-   {
-    
-    m = max(m, u.second);
-   }
-   
-    cout << m << nl;
-
+    string s;
+    cin >> s;
+    stack<char> st;
+      
+        for(int i =0; i < (int)s.size(); i++)
+        {
+            if(st.empty())st.push(s[i]);
+           else if(s[i] == st.top())
+            {
+                st.pop();
+                continue;
+            }
+            else st.push(s[i]);
+        }
+        //s.clear();
+        string k;
+        while(!st.empty())
+        {
+            //cout << st.top() << " ";
+            k.push_back( st.top() );
+            st.pop();
+        }
+        
+        reverse(k.begin(), k.end());
+        cout << k << nl;
+      
 
 
 }
 
 int main(){
+     bismillah
     int t=1;
     //cin >> t;          // remove '//' for testcase
     while(t--){
@@ -69,3 +77,7 @@ int main(){
     }
     return 0;
 }
+
+
+
+

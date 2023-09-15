@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -34,62 +33,39 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 　| (￣ヽ＿_ヽ_)__)   
 　＼二つ
 */
-
 void solve()
 {
-//     int n;
-//     cin >> n;
-//     vi v(n);
-
-//     forcin(v);
-
-//     int sum = 0;
-//     bool f = false;
-//     if(n == 1)
-//     {
-//         noR;
-//     }
-//    for(int i = 0; i < sz(v); i++)
-//    {
-//     if (v[i] == 1) 
-//     {
-//         sum++;
-//         f = true;
-//     }
-//    }
-//    if(!f)
-//    {
-//         yesR;
-//    }
-//    if(sum > (n/2))no;
-//    else yes;
-
-
- //------------
-  int n;
-    cin >> n;
-    vi v(n);
-
+  int n;cin >> n;
+    vi v(n), k;
     forcin(v);
-    if(n==1)
+    bool ok = false;
+    for(int i = 0; i < sz(v); i++)
     {
-        noR;
+        k.pb(v[i] -(i+1));
     }
-    set<int> s;
-    sort(all(v));
-    printVec(v);
-    ll sum = 0;
-
-    for(int i = 0; i < sz(v); i++) 
+    for(int i = 0; i < sz(k); i++)
     {
-        sum += v[i];
-        s.insert(v[i]);
+        if(k[i] == k[i+1])
+        {
+            
+        }
     }
-    cout << sum << nl;
-    if(sz(s) != sz(v))no;
-    else yes;
+    //printVec(k);
 
-   
+     
+    for(int i = 1; i <= sz(v);i++)
+    {
+        if((k[i-1]) == v[i-1])
+        {
+            
+            swap(k[i-1], k[n-i]);
+        }
+         //printVec(k);
+    }
+    printVec(k);
+    //cout << " ok;"<<nl;;
+
+
 
 }
 
@@ -101,3 +77,5 @@ int main(){
     }
     return 0;
 }
+
+

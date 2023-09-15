@@ -1,4 +1,4 @@
-
+// Bismillahir Rahmanir Raheem
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -12,12 +12,14 @@ typedef vector<int> vi;
 #define nl '\n'
 #define yes cout<<"YES\n"
 #define no cout<<"NO\n"
-#define yesR cout<<"YES\n";return;
-#define noR cout<<"NO\n";return;
+#define yesR {cout<<"YES\n";return;}
+#define noR {cout<<"NO\n";return;}
 #define vit vector<int>::iterator  
 #define forcin(n) for(auto &x : n) cin>>x;
 #define forcout(n) for(auto x : n) cout << x << " ";
-void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec(v) likle hobe
+#define bismillah ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ever ;1;
+void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
@@ -34,66 +36,35 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 　| (￣ヽ＿_ヽ_)__)   
 　＼二つ
 */
-
 void solve()
 {
-//     int n;
-//     cin >> n;
-//     vi v(n);
+       int n;
+       cin >> n;
+       vi v(n);
+       forcin(v);
+       int mn = *min_element(all(v));
+       int mk = *max_element(all(v));
 
-//     forcin(v);
+       if(v[0] == mn || v.back() == mk)
+       {
+        cout << mk - mn << nl;return;
+       }
+          int mx = INT32_MIN;
+        
+       for(int  i= 0; i < sz(v)-1; i++)
+       {
+            mx = max(mx,(v[i] - v[i+1]));
+       }
+       mx = max(mx,v.back()-v[0]);
+       mx = max(mx,v.back()- mn);
+       mx = max(mx,mk-v[0]);
+       cout << mx << nl;
 
-//     int sum = 0;
-//     bool f = false;
-//     if(n == 1)
-//     {
-//         noR;
-//     }
-//    for(int i = 0; i < sz(v); i++)
-//    {
-//     if (v[i] == 1) 
-//     {
-//         sum++;
-//         f = true;
-//     }
-//    }
-//    if(!f)
-//    {
-//         yesR;
-//    }
-//    if(sum > (n/2))no;
-//    else yes;
-
-
- //------------
-  int n;
-    cin >> n;
-    vi v(n);
-
-    forcin(v);
-    if(n==1)
-    {
-        noR;
-    }
-    set<int> s;
-    sort(all(v));
-    printVec(v);
-    ll sum = 0;
-
-    for(int i = 0; i < sz(v); i++) 
-    {
-        sum += v[i];
-        s.insert(v[i]);
-    }
-    cout << sum << nl;
-    if(sz(s) != sz(v))no;
-    else yes;
-
-   
 
 }
 
 int main(){
+     bismillah
     int t=1;
     cin >> t;          // remove '//' for testcase
     while(t--){
@@ -101,3 +72,7 @@ int main(){
     }
     return 0;
 }
+
+
+
+

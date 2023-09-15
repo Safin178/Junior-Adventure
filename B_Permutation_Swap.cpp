@@ -38,7 +38,7 @@ void solve()
 {
    int n;
    cin >> n;
-   vi v(n);
+   vi v(n),l;
    forcin(v);
     int ans = INT32_MAX;
    for(int i = 0; i < sz(v); i++)
@@ -46,7 +46,17 @@ void solve()
         if(i+1 == v[i])continue;
 
         ans = min(ans, abs(i+1 - v[i]));
+        l.pb(ans);
    }
+  // printVec(l);
+for(int i =0 ;i < sz(l); i++)
+   {
+    if(l[i]% ans != 0)
+    {
+        ans = 1;
+        break;
+    }}
+
    cout << ans << nl; 
     
 

@@ -1,4 +1,4 @@
-
+// Bismillahir Rahmanir Raheem
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -12,12 +12,14 @@ typedef vector<int> vi;
 #define nl '\n'
 #define yes cout<<"YES\n"
 #define no cout<<"NO\n"
-#define yesR cout<<"YES\n";return;
-#define noR cout<<"NO\n";return;
+#define yesR {cout<<"YES\n";return;}
+#define noR {cout<<"NO\n";return;}
 #define vit vector<int>::iterator  
 #define forcin(n) for(auto &x : n) cin>>x;
 #define forcout(n) for(auto x : n) cout << x << " ";
-void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec(v) likle hobe
+#define bismillah ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ever ;1;
+void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
@@ -34,66 +36,41 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 　| (￣ヽ＿_ヽ_)__)   
 　＼二つ
 */
-
 void solve()
 {
-//     int n;
-//     cin >> n;
-//     vi v(n);
-
-//     forcin(v);
-
-//     int sum = 0;
-//     bool f = false;
-//     if(n == 1)
-//     {
-//         noR;
-//     }
-//    for(int i = 0; i < sz(v); i++)
-//    {
-//     if (v[i] == 1) 
-//     {
-//         sum++;
-//         f = true;
-//     }
-//    }
-//    if(!f)
-//    {
-//         yesR;
-//    }
-//    if(sum > (n/2))no;
-//    else yes;
-
-
- //------------
-  int n;
-    cin >> n;
-    vi v(n);
-
-    forcin(v);
-    if(n==1)
+    int n,q;
+    cin >> n >> q;
+    vi v(n), pr;
+    pr.pb(0);
+    ll  sum = 0;
+    for(int i =0; i < sz(v); i++)
     {
-        noR;
-    }
-    set<int> s;
-    sort(all(v));
-    printVec(v);
-    ll sum = 0;
-
-    for(int i = 0; i < sz(v); i++) 
-    {
+        cin >> v[i];
         sum += v[i];
-        s.insert(v[i]);
+        pr.pb(sum);
     }
-    cout << sum << nl;
-    if(sz(s) != sz(v))no;
-    else yes;
+    ll sum2, realsum;
+    while(q--)
+    {
+        int l ,r, k;
+        cin >> l >> r >> k;
+        sum2 = pr.back() - pr[r] - pr[l-1];
+        realsum = sum2 + (r-l-1)*k;
+        if(realsum & 1 == 1)//even odd duru
+        {
+            yes;
+        }
+        else no;
+    }
+    //print(pr);
 
-   
+       
+
 
 }
 
 int main(){
+     bismillah
     int t=1;
     cin >> t;          // remove '//' for testcase
     while(t--){
@@ -101,3 +78,7 @@ int main(){
     }
     return 0;
 }
+
+
+
+

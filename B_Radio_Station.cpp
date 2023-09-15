@@ -1,4 +1,4 @@
-
+// Bismillahir Rahmanir Raheem
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -12,12 +12,14 @@ typedef vector<int> vi;
 #define nl '\n'
 #define yes cout<<"YES\n"
 #define no cout<<"NO\n"
-#define yesR cout<<"YES\n";return;
-#define noR cout<<"NO\n";return;
+#define yesR {cout<<"YES\n";return;}
+#define noR {cout<<"NO\n";return;}
 #define vit vector<int>::iterator  
 #define forcin(n) for(auto &x : n) cin>>x;
 #define forcout(n) for(auto x : n) cout << x << " ";
-void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec(v) likle hobe
+#define bismillah ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ever ;1;
+void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
@@ -34,42 +36,46 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 　| (￣ヽ＿_ヽ_)__)   
 　＼二つ
 */
-
-void solve()//23 - editotial dekhe felsi
+void solve()
 {
-    int n, x;
-    cin >> n >> x;
+     int n,k;
+    cin >> n >> k;
+    n = n + k;
+    string x, y;
 
-    vi v(n);
-    forcin(v);
-    ll int sum = 0;
-    ll int ma, mi;
+    map<string,string> m;
+   // map<string,string>:: iterator it;
 
-    for(int i = 0; i  <sz(v); i++)
+    while(n--)
     {
-        sum += (int)ceil(v[i]/(double)x);
-       // cout << sum << " ";
-    }
-    ma = sum;
-    sum = 0;
-     for(int i = 0; i  <sz(v); i++)
-    {
-        sum += v[i];
-       // cout << sum << " ";
-    }
-    mi =  ceil(sum/(double)x);
-    cout << mi<< " " << ma << nl;
-    
+        cin >> y >> x;
+        if(x.back() == ';')
+        {
+            x.pop_back();
+        }
+        if(m[x] != "")
+        {
+            cout << y << " " << x<<"; #" << m[x] << nl;
 
+        }
+        else m[x] = y;
+
+    }
+       
 
 
 }
 
 int main(){
+     bismillah
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }
     return 0;
 }
+
+
+
+
