@@ -1,4 +1,4 @@
-
+// Bismillahir Rahmanir Raheem
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -12,12 +12,14 @@ typedef vector<int> vi;
 #define nl '\n'
 #define yes cout<<"YES\n"
 #define no cout<<"NO\n"
-#define yesR cout<<"YES\n";return;
-#define noR cout<<"NO\n";return;
+#define yesR {cout<<"YES\n";return;}
+#define noR {cout<<"NO\n";return;}
 #define vit vector<int>::iterator  
 #define forcin(n) for(auto &x : n) cin>>x;
 #define forcout(n) for(auto x : n) cout << x << " ";
-void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec(v) likle hobe
+#define bismillah ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ever ;1;
+void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
@@ -34,61 +36,51 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 　| (￣ヽ＿_ヽ_)__)   
 　＼二つ
 */
-
 void solve()
 {
-    string s;
-    cin >> s;
+    int n,h;
+    cin >> n >> h;
+    vi v(n);
+    ll sum =0;
+    forcin(v);
+    int ans = *max_element(all(v));
+    // for(int i = 0; i < sz(v); i++)
+    // {
+    //     sum += v[i];
+    // }
+    // //cout << sum + h << nl;
+    // cout <<  (sum+h)/n << nl;
 
-
-//    int x , k;
-//    while(1){
     
-//    x= s.find("WUB",0);
-//     if(x == -1)break;
-   
     
-
-//     s.replace(x,3," ");
-//    }
-//    for(int i = 1; i < sz(s); i++)
-//    {
-//         if(s[i] == ' ' && s[i-1] == ' ')
-//         {
-//             continue;
-//         }
-//         cout << s[i];
-//    }
-//    //c//out << s << nl;
-bool f = 0;
-
-    for(int i = 0; i < sz(s); i++)
+    
+    for(int i = 1; 1; i++)
     {
-        if(s[i] == 'W' && s[i+1] == 'U' && s[i+2] == 'B')
+        sum = 0;
+        for(int j =0; j < sz(v); j++ )
         {
-            if(f==1)
-            {
-                cout <<" ";
-                f=0;
-            }
-            i+=2;
+            if(i >= v[j]){ sum += (i-v[j]);}
         }
-        else 
+        if(sum > h)
         {
-            cout <<s[i] ;
-            f=1;
+            cout << i -1<< nl;return;
         }
     }
-
+       
 
 
 }
 
 int main(){
+     bismillah
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }
     return 0;
 }
+
+
+
+

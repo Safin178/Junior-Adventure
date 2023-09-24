@@ -1,4 +1,4 @@
-
+// Bismillahir Rahmanir Raheem
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -10,14 +10,16 @@ typedef vector<int> vi;
 #define ll long long
 #define pb push_back
 #define nl '\n'
-#define yes cout<<"YES\n"
+#define yes cout<<"Yes\n"
 #define no cout<<"NO\n"
-#define yesR cout<<"YES\n";return;
-#define noR cout<<"NO\n";return;
+#define yesR {cout<<"YES\n";return;}
+#define noR {cout<<"No\n";return;}
 #define vit vector<int>::iterator  
 #define forcin(n) for(auto &x : n) cin>>x;
 #define forcout(n) for(auto x : n) cout << x << " ";
-void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec(v) likle hobe
+#define bismillah ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ever ;1;
+void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
@@ -34,57 +36,24 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 　| (￣ヽ＿_ヽ_)__)   
 　＼二つ
 */
-
 void solve()
 {
     string s;
     cin >> s;
-
-
-//    int x , k;
-//    while(1){
-    
-//    x= s.find("WUB",0);
-//     if(x == -1)break;
-   
-    
-
-//     s.replace(x,3," ");
-//    }
-//    for(int i = 1; i < sz(s); i++)
-//    {
-//         if(s[i] == ' ' && s[i-1] == ' ')
-//         {
-//             continue;
-//         }
-//         cout << s[i];
-//    }
-//    //c//out << s << nl;
-bool f = 0;
-
-    for(int i = 0; i < sz(s); i++)
+    bool ok = true;
+    for(int i = 0; i < sz(s)-1; i++)
     {
-        if(s[i] == 'W' && s[i+1] == 'U' && s[i+2] == 'B')
+        if(s[i] <= s[i+1])
         {
-            if(f==1)
-            {
-                cout <<" ";
-                f=0;
-            }
-            i+=2;
+            noR;
         }
-        else 
-        {
-            cout <<s[i] ;
-            f=1;
-        }
-    }
-
-
+    }   
+    yes;
 
 }
 
 int main(){
+     bismillah
     int t=1;
     //cin >> t;          // remove '//' for testcase
     while(t--){
@@ -92,3 +61,7 @@ int main(){
     }
     return 0;
 }
+
+
+
+
