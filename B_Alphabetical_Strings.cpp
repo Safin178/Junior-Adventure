@@ -38,51 +38,55 @@ void print(auto v2, string s = "")
 */
 void solve()
 {
-        string s;
-    cin >> s;
-    int sum = 0;
-   // cout << 1 << nl;
-    for(int i = 0; i < sz(s); i++)
-    {
-        if(s[i] == 'A')sum++;
+     string s;
+     cin >> s;
+     vi v;
+     if(sz(s) % 2 != 0)
+     {
+        if(!(s[0] == (char)('a'+sz(s)-1) || s.back() == (char)('a' + sz(s)-1)))
+        {
+                noR;
+        }
+     }
+     for(int i =0 ;i < sz(s); i++)
+     {
+       // cout << s[i] -'a';
+       if(sz(s) % 2 != 0)
+       {
+         if(int(s[i]-'a') == sz(s)-1)continue;
+       }
+        v.pb(int(s[i]-'a'));
         
-        
-    }
-    if(sum==sz(s))
-    {
-        cout << 0 << nl;return;
-    }
-    if(s[0] =='B' || s.back() == 'B')
-    {
-        cout << sum << nl;
-        return;
-    }
-    vi v;
-    int cnt = 0;
+     }  
+     //print(v);
+     for(int i = 0; i < sz(v);i++)
+     {
+        if(v[i] % 2 != 0)
+        {
+            if(v[i] - 1 == v.back())
+            {
+                v.pop_back();
+                continue;
+            }
+            else {
+                noR;
+            }
+        }
+        else 
+        {
+             if(v[i] + 1 == v.back())
+            {
+                v.pop_back();
+                continue;
+            }
+            else {
+                noR;
+            }
 
-    for(int i = 0; i <= sz(s); i++)
-    {
-        if(s[i] == 'A')cnt++;
-        if(s[i] == 'B' && s[i+1] == 'B')
-        {
-            cout << sum << nl;
-            return;
         }
-        else if(s[i] == 'B'|| i == sz(s) )
-        {
-            //if(cnt!=0)
-            v.pb(cnt);
-            cnt = 0;
-        }
-    }
-   // print(v);
-   // int  x= *min_element(all(v));
-    if(sz(v) <= 1)
-    {
-        cout << sum << nl;
-    }
-    else
-    cout << sum - (*min_element(all(v))) << nl;
+     }
+     yes;
+    // cout << " "<<sz(s) << nl;
 
 
 }

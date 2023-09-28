@@ -12,8 +12,8 @@ typedef vector<int> vi;
 #define nl '\n'
 #define yes cout<<"YES\n"
 #define no cout<<"NO\n"
-#define yesR {cout<<"YES\n";return;}
-#define noR {cout<<"NO\n";return;}
+#define ryes {cout<<"YES\n";return;}
+#define rno {cout<<"NO\n";return;}
 #define vit vector<int>::iterator  
 #define forcin(n) for(auto &x : n) cin>>x;
 #define forcout(n) for(auto x : n) cout << x << " ";
@@ -38,52 +38,21 @@ void print(auto v2, string s = "")
 */
 void solve()
 {
-        string s;
-    cin >> s;
-    int sum = 0;
-   // cout << 1 << nl;
-    for(int i = 0; i < sz(s); i++)
-    {
-        if(s[i] == 'A')sum++;
-        
-        
-    }
-    if(sum==sz(s))
-    {
-        cout << 0 << nl;return;
-    }
-    if(s[0] =='B' || s.back() == 'B')
-    {
-        cout << sum << nl;
-        return;
-    }
-    vi v;
+    int n,k;
+    cin >> n >> k;
     int cnt = 0;
-
-    for(int i = 0; i <= sz(s); i++)
+    if(n==1)
     {
-        if(s[i] == 'A')cnt++;
-        if(s[i] == 'B' && s[i+1] == 'B')
-        {
-            cout << sum << nl;
-            return;
-        }
-        else if(s[i] == 'B'|| i == sz(s) )
-        {
-            //if(cnt!=0)
-            v.pb(cnt);
-            cnt = 0;
-        }
+        rno;
     }
-   // print(v);
-   // int  x= *min_element(all(v));
-    if(sz(v) <= 1)
+    while(n--)
     {
-        cout << sum << nl;
-    }
-    else
-    cout << sum - (*min_element(all(v))) << nl;
-
+        int l , r;
+        cin >> l >> r;
+        if(k>=l && k<=r)cnt++;
+    }   
+    if(n/2 < cnt)yes;
+    else no;
 
 }
 

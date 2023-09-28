@@ -38,51 +38,21 @@ void print(auto v2, string s = "")
 */
 void solve()
 {
-        string s;
-    cin >> s;
-    int sum = 0;
-   // cout << 1 << nl;
-    for(int i = 0; i < sz(s); i++)
-    {
-        if(s[i] == 'A')sum++;
-        
-        
-    }
-    if(sum==sz(s))
-    {
-        cout << 0 << nl;return;
-    }
-    if(s[0] =='B' || s.back() == 'B')
-    {
-        cout << sum << nl;
-        return;
-    }
-    vi v;
-    int cnt = 0;
-
-    for(int i = 0; i <= sz(s); i++)
-    {
-        if(s[i] == 'A')cnt++;
-        if(s[i] == 'B' && s[i+1] == 'B')
+     int n;
+     cin >> n;
+     vi v(n), k;
+     forcin(v);
+     int cnt = 1;
+     for(int i =0 ;i < sz(v); i++)
+     {
+        if(v[i] == cnt)
         {
-            cout << sum << nl;
-            return;
+            cnt++;
         }
-        else if(s[i] == 'B'|| i == sz(s) )
-        {
-            //if(cnt!=0)
-            v.pb(cnt);
-            cnt = 0;
-        }
-    }
-   // print(v);
-   // int  x= *min_element(all(v));
-    if(sz(v) <= 1)
-    {
-        cout << sum << nl;
-    }
-    else
-    cout << sum - (*min_element(all(v))) << nl;
+            k.pb(cnt);
+            cnt++;
+     }  
+     cout << k.back() << nl;
 
 
 }

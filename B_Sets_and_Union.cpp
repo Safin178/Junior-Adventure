@@ -38,51 +38,46 @@ void print(auto v2, string s = "")
 */
 void solve()
 {
-        string s;
-    cin >> s;
-    int sum = 0;
-   // cout << 1 << nl;
-    for(int i = 0; i < sz(s); i++)
+    set<int>m;
+    
+    int n;
+    cin >> n;
+    set<int> a[n];
+    int i =0;
+    while(n--)
     {
-        if(s[i] == 'A')sum++;
-        
-        
-    }
-    if(sum==sz(s))
+        int x;
+        cin >> x;
+        while(x--)
+        {
+            int k;
+            cin >> k;
+            m.insert(k);
+            a[i].insert(k);
+        }
+        i++;
+    }  
+    set<int>t;
+    forcout(m);
+    
+    int s;
+    int ans = 0;
+    for(int i = 0; i < n; i++)
     {
-        cout << 0 << nl;return;
-    }
-    if(s[0] =='B' || s.back() == 'B')
-    {
-        cout << sum << nl;
-        return;
-    }
-    vi v;
-    int cnt = 0;
+        t = a[i];
+        s = sz(a[i]);
 
-    for(int i = 0; i <= sz(s); i++)
-    {
-        if(s[i] == 'A')cnt++;
-        if(s[i] == 'B' && s[i+1] == 'B')
+        for(int j = 0; j < n ; j++)
         {
-            cout << sum << nl;
-            return;
-        }
-        else if(s[i] == 'B'|| i == sz(s) )
-        {
-            //if(cnt!=0)
-            v.pb(cnt);
-            cnt = 0;
+            for(auto u : a[j])t.insert(u);
+            cout << sz(t) << nl;
+            if(sz(t) != sz(m))
+            {
+                ans = max(ans,sz(t));
+            }
         }
     }
-   // print(v);
-   // int  x= *min_element(all(v));
-    if(sz(v) <= 1)
-    {
-        cout << sum << nl;
-    }
-    else
-    cout << sum - (*min_element(all(v))) << nl;
+    cout << ans << nl;
 
 
 }
