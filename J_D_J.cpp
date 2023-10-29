@@ -119,28 +119,43 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    for(ever){
-
-    
-        int n;
-        cin >> n;
-        if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
+    int n;
+    cin >> n;
+    int p[n],a[n],b[n];
+    for(int i = 1; i <= n; i++) cin >> p[i];
+    for(int i = 1; i <= n; i++) cin >> a[i];
+    for(int i = 1; i <= n; i++) cin >> b[i];
+    int kaj_dise;
+    cin >> kaj_dise;
+    priority_queue<int,vi,greater<int>>q[5][5];
+    for(int i = 1;i<=n;i++){
+        q[a[i]][b[i]].push(p[i]);
+    }
+    while(kaj_dise--){
+        int x;
+        cin >> x;
+        int ans = INT_MAX;
+        int f, b;
+        for(int i=1;i <= 3; i++){
+            if(!q[i][x].empty() && ans > q[i][x].top()){
+                ans = q[i][x].top();
+                f = i, b = x;
+            }
         }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
+        for(int i=1;i <= 3; i++){
+            if(!q[x][i].empty() && ans > q[x][i].top()){
+                ans = q[x][i].top();
+                f = x, b = i;
+            }
         }
-        cout << sum << nl;
+        if(ans == INT_MAX){
+            cout << -1 << " ";
+        }
+        else 
+        {
+            cout << ans << " ";
+            q[f][b].pop();
+        }
     }
     
 
@@ -156,4 +171,3 @@ int main(){
     }
     return 0;
 }
- 

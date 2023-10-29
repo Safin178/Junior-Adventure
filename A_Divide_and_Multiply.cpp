@@ -119,41 +119,92 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    for(ever){
+// 4 4 4
+// 2 4 8
+// 1 4 16
+// 1 2 32
+// 1 1 64
+    int n;
+    cin >> n;
+    vi v(n);
+    forcin(v);
+    vi k, o;
+    ll sumod=0;
+    for(int i = 0; i < sz(v); i++)
+    {
+        if(v[i] % 2 == 0)k.pb(v[i]);
+        else {o.pb(v[i]);sumod+=v[i];}
 
-    
-        int n;
-        cin >> n;
-        if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
-        }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
-        }
-        cout << sum << nl;
     }
+    ll x;bool f = 0;
+    if(sz(o))
+    {
+        x = *max_element(all(o));
+        f=1;
+    }
+    else x = *max_element(all(k));
+    
+    ll sum = 0;
+    //dbg(k);
+    int j = sz(k);
+    for(int i = 0; i< sz(k); i++)
+    {
+        if(x == k[i] && f==0)
+        {
+            f=1;
+            j = sz(k)-1;
+            continue;
+        }
+        else sum += k[i];
+    }
+    //cout << sum << " ";
+    sum = sum / 2;
+    sum = x * (1LL << sum);
+    if(sz(o)){
+        sumod= sumod - x;
+    }
+    cout <<  ((sum) + sumod + j)*1LL << nl;
+
+
+
+
     
 
 }
+void solve2()
+{ // editorial deksi
+     int n;
+    cin >> n;
+    vi v(n);
+    forcin(v);
+    ll k = 0 ,x;
+    ll sum =0;
+    for(int i =0 ;i < sz(v); i++)
+    {
+        while(v[i] % 2 == 0)
+        {
+            v[i] /= 2;
+            k++;
+        }
+        sum += v[i];
+    }
+     x= *max_element(all(v));
+    //  cout << x << " " << sum << nl;
+    //  cout << k << nl;
+    //  cout <<(1LL << k) << nl;
 
+    cout <<  (sum - x) + (x * (1LL << k) *1LL) << nl;
+
+}
 int main(){
     
     bismillah
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
-        solve();
+        //solve();
+        solve2();
+
     }
     return 0;
 }
- 

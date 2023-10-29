@@ -119,28 +119,21 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    for(ever){
+    int n;
+    cin >> n;
+    map<pii,string>p;
+    while(n--){
+        int x, y;
+        string s;
+        cin >> x >> y >> s;
+        p[{x,y}] = s;
+    }
+    int k;
+    cin >> k;
+    while(k--){
+        int x, y; cin >> x >> y;
+        cout << p[{x,y}] << nl;
 
-    
-        int n;
-        cin >> n;
-        if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
-        }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
-        }
-        cout << sum << nl;
     }
     
 
@@ -156,4 +149,3 @@ int main(){
     }
     return 0;
 }
- 

@@ -119,28 +119,20 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    for(ever){
-
-    
-        int n;
-        cin >> n;
-        if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
-        }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
-        }
-        cout << sum << nl;
+    int n , m;
+    cin >> n >> m;
+    map<string,string>p;
+    while(n--){
+        string x, ip;
+        cin >> x >> ip;
+        p[ip] = x;
+    }
+    while(m--){
+        string cm, ip;
+        cin >> cm >> ip;
+        cout << cm+" "+ip << " #" ;
+        ip.pop_back();
+        cout << p[ip] <<nl;
     }
     
 
@@ -156,4 +148,3 @@ int main(){
     }
     return 0;
 }
- 

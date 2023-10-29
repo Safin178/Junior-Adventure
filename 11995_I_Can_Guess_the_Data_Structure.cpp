@@ -119,33 +119,43 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    for(ever){
+    int n;
+    while(cin >> n){
+        int c, x;
+        stack<int>st;
+        priority_queue<int>pt;
+        queue<int>qt;
+        int s , q, p; 
+        s = q = p = 0;
+        while(n--){
+            cin >> c >> x;
+            if(c == 1){
+                st.push( x );
+                pt.push( x );
+                qt.push( x );
+            }
+            else if(c == 2){
+                if(x != st.top()) s = 1;
+                if(x != pt.top()) p = 1;
+                if(x != qt.front()) q = 1;
+                st.pop(); pt.pop() ; qt.pop();
+            }
+        }
+        if((s+p+q) <= 1)cout << "not sure\n";
+        else if((s+p+q) == 3) cout << "impossible\n";
+        else{
 
-    
-        int n;
-        cin >> n;
-        if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
+            if(s == 0)cout << "stack\n";
+            else if(p == 0) cout << "priority queue\n";
+            else cout << "queue\n";
         }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
-        }
-        cout << sum << nl;
     }
-    
-
 }
-
+/*
+ i am going to submit it, onek patience niye korsi , shudu EOF kemne nibo deksi online theke
+ bhoi lagtese st, pt, qt gula empty ba eirokom jamila na hok ,
+ clean code baji
+*/
 int main(){
     
     bismillah
@@ -156,4 +166,3 @@ int main(){
     }
     return 0;
 }
- 

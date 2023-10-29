@@ -1,4 +1,4 @@
-// Bismillahir Rahmanir Raheem
+ // Bismillahir Rahmanir Raheem
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -119,29 +119,10 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    for(ever){
-
+    string s, t;
+    cin >> s >> t;
+    map<char,int>ms,mt;
     
-        int n;
-        cin >> n;
-        if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
-        }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
-        }
-        cout << sum << nl;
-    }
     
 
 }
@@ -150,10 +131,9 @@ int main(){
     
     bismillah
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }
     return 0;
 }
- 

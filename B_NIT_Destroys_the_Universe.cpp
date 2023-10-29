@@ -21,12 +21,19 @@ typedef vector<int> vi;
 #define ever       ;1;
 #define ff         first
 #define ss         second
-
+#define mp make_pair
 void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
 			cout<< v2[i] <<" ";
+		cout<<"\n";
+}
+void printpv(auto v2, string s = "")
+{
+	cout<<s;
+	for (int i = 0; i < (int)v2.size(); ++i)
+			cout<< v2[i].ff <<" " <<v2[i].ss << nl;
 		cout<<"\n";
 }
 
@@ -43,27 +50,98 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
-    {
-        if(n-k < 0)
-        {
-            break;
-        }
-        n = n -k+1;
-        ans++;
-    }
-       cout << ans+f << nl;
+      int n;
+	  cin >> n;
+	  vi v(n);
+	  forcin(v);
+	  ll int ok=0,nook=1;
+	  for(auto &u : v)
+	  {
+		if(u == 0)
+		{
+			ok++;
+			
+		}
+		else u =1;
+		
+	  }
+	//   for(auto u : v)
+	//   {
+	// 	if(u == 0)
+	// 	{
+	// 		nook = 0;
+	// 		break;
+	// 	}
+		
+	//   }
+	  if(ok==sz(v))
+	  {
+		cout<<0<<nl;return;
+	  }
+	  ok = 0;
+	//   int ok2=0;
+	
+		
+	// 	int k,p;p=k = v[0];
+	// 	for(int i = 0; i < sz(v); i++)
+	// 	{
+			
+	// 		if(v[i] !=k)
+	// 		{
+	// 			k = v[i];
+	// 			for(int j = i+1; j < sz(v); j++)
+	// 			{
+	// 				if(v[j] !=   k)
+	// 				{
+				
+	// 				cout << 2 <<nl;
+	// 				 return;
+	// 			    }
+	// 			}
+				
+
+	// 		}
+
+	// 	}
+	int l,r;
+	for(int i = 0; i < sz(v); i++)
+	{
+		if(v[i]!=0)
+		{
+			l = i;
+			break;
+		}
+	}
+	for(int i = 0; i < sz(v); i++)
+	{
+		if(v[sz(v)-i-1]!=0)
+		{
+			r = sz(v)-1-i;
+			break;
+		}
+	}
+	for(int i = l; i<=r;i++)
+	{
+		if(v[i]==0)
+		{
+			cout << 2 << nl;
+			return;
+		}
+	}
+	
+		
+	
+	
+	 cout << 1 << nl;
+		
+
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }
@@ -73,3 +151,55 @@ int main(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

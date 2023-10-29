@@ -30,6 +30,7 @@ void print(auto v2, string s = "")
 		cout<<"\n";
 }
 
+
 /*        ／＞　　フ
 　　　　　| 　_　 _ |
 　 　　　／` ミ＿Yノ     meow
@@ -41,29 +42,37 @@ void print(auto v2, string s = "")
 　＼二つ
 */
 
-void solve()
+void solve()//editorial deksi
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
+    int n;
+    cin >> n;
+    vi v,l(n);
+    forcin(l);
+    for(int i =0 ; i < sz(l); i++)
     {
-        if(n-k < 0)
-        {
-            break;
-        }
-        n = n -k+1;
-        ans++;
+        if(l[i] % 2 == 0)v.pb(l[i]);
     }
-       cout << ans+f << nl;
+    for(int i =0 ; i < sz(l); i++)
+    { 
+        if(l[i] % 2 != 0)v.pb(l[i]);
+    }
+   // print(v);
+    int cnt = 0;
+    for(int i = 0; i < sz(v); i++)
+    {
+        for(int j = i + 1;j < sz(v); j++)
+        {
+            if(__gcd(v[i],2*v[j]) > 1)cnt++;
+        }
+    }
+    cout << cnt << nl;
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

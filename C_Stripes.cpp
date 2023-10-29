@@ -1,7 +1,7 @@
 //----------- Bismillahir Rahmanir Raheem -------------/
 #include<bits/stdc++.h>
 using namespace std;
-
+//someone who’s willing to stand before a mountain and take it head on even though he knows he’ll lose
 typedef vector<long long> vl;
 typedef vector<int> vi;
 
@@ -21,12 +21,19 @@ typedef vector<int> vi;
 #define ever       ;1;
 #define ff         first
 #define ss         second
-
+#define mp make_pair
 void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
 			cout<< v2[i] <<" ";
+		cout<<"\n";
+}
+void printpv(auto v2, string s = "")
+{
+	cout<<s;
+	for (int i = 0; i < (int)v2.size(); ++i)
+			cout<< v2[i].ff <<" " <<v2[i].ss << nl;
 		cout<<"\n";
 }
 
@@ -43,27 +50,51 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
+      string s[10];
+      int n=8,i=0;
+      while(n--)
+      {
+        cin >> s[i];
+        i++;
+      }
+      string r = "RRRRRRRR";
+      string b = "BBBBBBBB";
+    for(int i = 0; i < 8;i++)
     {
-        if(n-k < 0)
+        if(s[i] == r)
         {
-            break;
+            cout <<'R'<<nl;
+            return;
         }
-        n = n -k+1;
-        ans++;
+         
     }
-       cout << ans+f << nl;
+    //bool ok = 0;
+   
+     for(int i = 0;  i < 8; i++)
+    {
+        bool ok = 0;
+        for(int j = 0 ; j < 8; j++)
+        {
+            if(s[j][i] != 'B')
+            {
+                ok =1;
+                break;
+            }
+
+        }
+        if(!ok)
+        {
+            cout << "B\n";
+            return;
+        }
+    }
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

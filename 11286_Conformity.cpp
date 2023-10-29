@@ -119,28 +119,63 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    for(ever){
-
-    
+    while(1){
         int n;
         cin >> n;
+        int k = n;
         if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
+         
+         map<vector<int>,int>m;
+         
+         while(k--)
+         {
+            vi v(5);
+            forcin(v);
+            sort(all(v));
+            m[v]++;
+         }
+        // priority_queue<int>p;
+         
+        //     while(k--)
+        //     {
+        //         int x;
+        //         cin >> x;
+        //         m[x]++;
+        //     }
+         
+        //  for(auto u : m)
+        //  {
+        //     cout << u.F <<  " : " << u.S << " k "; 
+        //     p.push(u.S);
+        //  }
+        //  int cnt = 0;
+        //  int j = p.top();
+        //  k = 3;
+        //  while(!p.empty())
+        //  {
+        //     cout << p.top() << " ";
+        //     p.pop();
+        //  }
+        //  while(k--)
+        //  {
+        //     if(p.top() == j)cnt++;
+        //     p.pop();
+        //  }
+        //  cout << cnt << nl;
+       int ans = INT_MIN;
+       int cnt = 0;
+        for(auto u : m)
+        {
+            ans = max(ans,u.S);
+
         }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
+        for(auto u : m)
+        {
+            if(u.S == ans)cnt+=ans;
         }
-        cout << sum << nl;
+        cout << cnt << nl;
+        
+
     }
     
 
@@ -156,4 +191,3 @@ int main(){
     }
     return 0;
 }
- 

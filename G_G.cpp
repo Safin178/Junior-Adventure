@@ -119,29 +119,46 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    for(ever){
+    int n,k;
+    cin >> n >> k;
+    vi v(n);
+    forcin(v);
+    deque<int>p;
+    for(int i = 0; i < sz(v); i++){
+        if(sz(p) < k){
+            if(p.empty())
+            p.push_front(v[i]);
+            else{
+                deque<int>op;
+                op = p;
+                sort(all(op));
+                if(!binary_search(all(op),v[i])){
+                    p.push_front(v[i]);
+                    //p.pop_back();
+                }
+            }
 
+        }
+        else{
+             deque<int>op;
+                op = p;
+                sort(all(op));
+                if(!binary_search(all(op),v[i])) // bhai AC hoi ja please
+                {
+                    p.push_front(v[i]);
+                    p.pop_back();
+                }
+               
+        }
+        
     
-        int n;
-        cin >> n;
-        if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
-        }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
-        }
-        cout << sum << nl;
     }
+    cout << sz(p) << nl;
+    for(auto u : p)
+    {
+        cout << u << " ";
+    }
+   // dbg(p);
     
 
 }
@@ -156,4 +173,3 @@ int main(){
     }
     return 0;
 }
- 

@@ -21,12 +21,19 @@ typedef vector<int> vi;
 #define ever       ;1;
 #define ff         first
 #define ss         second
-
+#define mp make_pair
 void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
 			cout<< v2[i] <<" ";
+		cout<<"\n";
+}
+void printpv(auto v2, string s = "")
+{
+	cout<<s;
+	for (int i = 0; i < (int)v2.size(); ++i)
+			cout<< v2[i].ff <<" " <<v2[i].ss << nl;
 		cout<<"\n";
 }
 
@@ -43,27 +50,63 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
+    int n ,q; 
+    
+    cin >>  n >> q;
+    vi v(n);
+    forcin(v);
+
+    ll sum = 0;
+    vl p , r;
+    p.pb(sum);
+
+    for(int i = 0; i < sz(v)-1;i++)
     {
-        if(n-k < 0)
+        if(v[i] > v[i+1])
         {
-            break;
+            sum += v[i]-v[i+1];
         }
-        n = n -k+1;
-        ans++;
+        p.pb(sum);
     }
-       cout << ans+f << nl;
+    reverse(all(v));
+    sum = 0;
+    r.pb(sum);
+    for(int i = 0; i < sz(v)-1;i++)
+    {
+        //sum += v[i];
+        if(v[i] > v[i+1])
+        {
+            sum += v[i]-v[i+1];
+        }
+        r.pb(sum);
+    }
+   // print(p);
+   // print(r);
+    while(q--)
+    {
+        int x,y;
+        cin >> x >> y;
+        if(x<=y)
+        {
+            cout << p[y-1] - p[x-1]<<nl;
+        }
+        else 
+        cout << r[n-y]- r[n-x]  << nl;
+        
+        
+    }
+
+
+
+
+
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+   // cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

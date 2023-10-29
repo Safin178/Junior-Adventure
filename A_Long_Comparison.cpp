@@ -21,12 +21,19 @@ typedef vector<int> vi;
 #define ever       ;1;
 #define ff         first
 #define ss         second
-
+#define mp make_pair
 void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
 			cout<< v2[i] <<" ";
+		cout<<"\n";
+}
+void printpv(auto v2, string s = "")
+{
+	cout<<s;
+	for (int i = 0; i < (int)v2.size(); ++i)
+			cout<< v2[i].ff <<" " <<v2[i].ss << nl;
 		cout<<"\n";
 }
 
@@ -43,27 +50,46 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
-    {
-        if(n-k < 0)
-        {
-            break;
-        }
-        n = n -k+1;
-        ans++;
-    }
-       cout << ans+f << nl;
+    //  string a , b;
+    //  int p;
+    //  cin >> a  >> p; 
+    //  while(p--)
+    //  {
+    //     a.pb('0');
+    //  }
+    //  //ll x = stoi(a,0,10);
+    //  //cout << x << nl;
+    //  cin >> b >> p;
+    //   while(p--)
+    //  {
+    //     b.pb('0');
+    //  }
+    //  //ll y = stoi(b,0,10);
+    int a,b,n;
+    cin >> a >> n;
+    double x = pow(10.0,(double)n);
+    cin >> b >> n;
+    
+   
+    ll y = b * pow(10.0,n);
+    cout << x << " " << y << nl;
+     char k;
+     if(x==y)k='=';
+     else if(x>y)k='>';
+     else k = '<';
+
+     
+     
+     cout << k << nl;
+
+
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

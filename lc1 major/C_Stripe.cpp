@@ -21,12 +21,19 @@ typedef vector<int> vi;
 #define ever       ;1;
 #define ff         first
 #define ss         second
-
+#define mp make_pair
 void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
 			cout<< v2[i] <<" ";
+		cout<<"\n";
+}
+void printpv(auto v2, string s = "")
+{
+	cout<<s;
+	for (int i = 0; i < (int)v2.size(); ++i)
+			cout<< v2[i].ff <<" " <<v2[i].ss << nl;
 		cout<<"\n";
 }
 
@@ -43,27 +50,50 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
-    {
-        if(n-k < 0)
+     int n;
+     cin >> n;
+     ll sum=0;
+     int x;
+     vl v(n),p1,p2;
+     forcin(v);
+
+     for(int i = 0; i < sz(v); i++)
+     {
+        sum += v[i];
+        p1.pb(sum);
+     }
+     sum = 0;
+      for(int i = sz(v)-1; i >= 0; i--)
+     {
+        sum += v[i];
+        p2.pb(sum);
+     }
+     //print(p1);
+     reverse(all(p2));
+     //print(p2);
+     int cnt = 0;
+     for(int i = 0; i < sz(p1)-1; i++)
+     {
+        if(p1[i]==p2[i+1])
         {
-            break;
+            cnt++;
         }
-        n = n -k+1;
-        ans++;
-    }
-       cout << ans+f << nl;
+     }
+    cout << cnt << nl;
+
+     
+
+     
+    
+     
+        
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+   // cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

@@ -21,7 +21,7 @@ typedef vector<int> vi;
 #define ever       ;1;
 #define ff         first
 #define ss         second
-
+#define mp make_pair
 void print(auto v2, string s = "")
 {
 	cout<<s;
@@ -29,6 +29,14 @@ void print(auto v2, string s = "")
 			cout<< v2[i] <<" ";
 		cout<<"\n";
 }
+void printpv(auto v2, string s = "")
+{
+	cout<<s;
+	for (int i = 0; i < (int)v2.size(); ++i)
+			cout<< v2[i].ff <<" " <<v2[i].ss << nl;
+		cout<<"\n";
+}
+
 
 /*        ／＞　　フ
 　　　　　| 　_　 _ |
@@ -43,27 +51,39 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
+    string s;
+    cin >> s;
+     int cnt = 0;
+    for(int i = 0 ; i < sz(s); i++)
     {
-        if(n-k < 0)
-        {
-            break;
-        }
-        n = n -k+1;
-        ans++;
+        if(s[i]=='4' || s[i]=='7')cnt++;
     }
-       cout << ans+f << nl;
+    if(cnt!=7 && cnt != 4)
+    {
+        rno;
+    }
+    
+    // string k = to_string(cnt);
+    // cout << k << nl;
+    // cout << cnt << nl;
+    // for(int i = 0 ;i < sz(k); i++)
+    // {
+        
+    //     if(s[i] != '4' && s[i] != '7')
+    //     {
+    //         rno;
+    //     }
+    // }
+    ryes;
+    
+
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+   // cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

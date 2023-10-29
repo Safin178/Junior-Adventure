@@ -21,12 +21,19 @@ typedef vector<int> vi;
 #define ever       ;1;
 #define ff         first
 #define ss         second
-
+#define mp make_pair
 void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
 			cout<< v2[i] <<" ";
+		cout<<"\n";
+}
+void printpv(auto v2, string s = "")
+{
+	cout<<s;
+	for (int i = 0; i < (int)v2.size(); ++i)
+			cout<< v2[i].ff <<" " <<v2[i].ss << nl;
 		cout<<"\n";
 }
 
@@ -43,27 +50,30 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
+    string s;
+    cin >> s;
+    string k ;
+    for(int i = 0 ; i < sz(s); i++)
     {
-        if(n-k < 0)
+        if(s[i]!='+')
         {
-            break;
+            k.pb(s[i]);
         }
-        n = n -k+1;
-        ans++;
     }
-       cout << ans+f << nl;
+      sort(all(k));
+      for(int i = 0; i < sz(k)-1; i++)
+      {
+        cout <<k[i]<<'+';
+      }
+      cout << k.back()<<nl;
+
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+   // cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

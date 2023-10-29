@@ -43,27 +43,46 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
+    int n;
+    cin >> n;
+    string s;
+    int l = n;
+    if(n>45)
     {
-        if(n-k < 0)
-        {
-            break;
-        }
-        n = n -k+1;
-        ans++;
+        cout << -1 << nl;
+        return;
     }
-       cout << ans+f << nl;
+
+    for(int i = 9; i >= 1; i--)
+    {
+         
+        if(n < i)
+        {
+            if(('0'+n)==i)
+            {
+                cout << -1 << nl;
+                return;
+            }
+            s.pb((char)('0'+n));
+       break;
+
+        }
+        n-=i;
+            s.pb((char)('0'+i));
+    }
+    if(s.back()=='0')s.pop_back();
+    reverse(all(s));
+    cout <<l <<" " << s << nl;
+
+    
+       
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

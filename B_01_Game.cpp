@@ -21,12 +21,19 @@ typedef vector<int> vi;
 #define ever       ;1;
 #define ff         first
 #define ss         second
-
+#define mp make_pair
 void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
 			cout<< v2[i] <<" ";
+		cout<<"\n";
+}
+void printpv(auto v2, string s = "")
+{
+	cout<<s;
+	for (int i = 0; i < (int)v2.size(); ++i)
+			cout<< v2[i].ff <<" " <<v2[i].ss << nl;
 		cout<<"\n";
 }
 
@@ -43,27 +50,48 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
-    {
-        if(n-k < 0)
+   string s;
+   cin >> s;
+   //stack<char>p;
+   //p.push(s[0]);
+   int cnt = 0;
+//    for(int i = 1; i < sz(s); i++)
+//    {
+//         if(p.top() != s[i])
+//         {
+//             cnt++;
+//             p.pop();
+//             continue;
+//         }
+//         p.push(s[i]);
+    
+//    }   
+    stack<char> st;
+      
+        for(int i =0; i < (int)s.size(); i++)
         {
-            break;
+            if(st.empty())st.push(s[i]);//eta bhul t 
+           else if(s[i] != st.top())
+            {
+                cnt++;
+                st.pop();
+                continue;
+            }
+            else st.push(s[i]);
         }
-        n = n -k+1;
-        ans++;
-    }
-       cout << ans+f << nl;
+   if(cnt % 2 == 0)
+   {
+    cout << "NET\n";
+   }
+   else cout << "DA\n";
+
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+   cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

@@ -119,36 +119,57 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    for(ever){
+    int n;
+    cin >> n;
+    multiset<int>p;
+    while(n--){
+        string s;
+        int x;
+        cin >> s  >> x;
+        if(s == "insert"){
+            p.insert(x);
+        } 
+        else {
+           // int l = x;
+            if(p.find(x) != p.end()){
+                p.erase(p.find(x));
+            }
+            
+        }
+        //dbg(p);
+         if(sz(p) <= 1){
+            cout << "neither\n";
+            continue;
+        }
+        
+        int het = 0, hom = 0 ,i=0;
+        // for(auto it = p.begin(); i < sz(p)-1; it++,i++ ){
+        //     if(*(p.begin()) == (p.+1)))hom =1;
+        //     if(*it != (*it+1))het =1;
+        // }
+       map<int,int>mp;
+        for(auto u : p)
+        {
+            mp[u]++;
+        }
+        for(auto u : mp)
+        {
+            if(u.S >= 2){hom =1;break;}
+        }
+        if(sz(mp)>=2)het =1;
+        if(hom == het && hom == 1) cout << "both\n";
+        else if(hom == 1) cout << "homo\n";
+        else cout << "hetero\n";
 
-    
-        int n;
-        cin >> n;
-        if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
-        }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
-        }
-        cout << sum << nl;
     }
-    
+   
+
 
 }
 
 int main(){
     
-    bismillah
+  //  bismillah
     int t=1;
     //cin >> t;          // remove '//' for testcase
     while(t--){
@@ -156,4 +177,3 @@ int main(){
     }
     return 0;
 }
- 

@@ -41,20 +41,21 @@ void solve()
     cin >> n;
     vi v(n);
     forcin(v);
-    int sum = 0, cnt = 0, zero = 0;
-
-    for(int i = 0; i  <sz(v); i++){
-        if(v[i] == 0)zero++;
-        if(v[i] < 0){
-            cnt++;
-            sum += abs(-1-v[i]);
-
-
-        }
-        else sum += abs(1-v[i]);
-        
+   ll int sum = 0, cnt = 0, zero = 0;
+    for(int i = 0; i < sz(v); i++)
+    {
+        if(v[i]==0)zero=1;
+        if(v[i] < 0)cnt++;
+        sum += abs(abs(v[i])-1);
     }
-    if(cnt % 2 != 0 && zero == 0)sum += 2;
+    if(cnt % 2 != 0 && zero==0)
+    {
+        sum += 2;
+    }
+    
+
+
+    
 
     cout << sum << nl;
 

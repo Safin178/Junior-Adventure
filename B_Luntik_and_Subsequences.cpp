@@ -21,12 +21,19 @@ typedef vector<int> vi;
 #define ever       ;1;
 #define ff         first
 #define ss         second
-
+#define mp make_pair
 void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
 			cout<< v2[i] <<" ";
+		cout<<"\n";
+}
+void printpv(auto v2, string s = "")
+{
+	cout<<s;
+	for (int i = 0; i < (int)v2.size(); ++i)
+			cout<< v2[i].ff <<" " <<v2[i].ss << nl;
 		cout<<"\n";
 }
 
@@ -43,27 +50,45 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
-    {
-        if(n-k < 0)
-        {
-            break;
-        }
-        n = n -k+1;
-        ans++;
-    }
-       cout << ans+f << nl;
+   int n;
+   cin >> n;
+   vi v(n);
+   forcin(v);
+
+   ll int cnt1=0,cnt=0;
+   //ll sum = 0;
+   for(int i = 0 ; i < sz(v); i++)
+   {
+    if(v[i]==1)cnt1++;
+    if(v[i]==0)cnt++;
+    //sum += v[i];
+   }   
+  
+  
+   
+//    if(cnt1<=1)
+//    {
+//     cout << (1 << cnt) << nl;
+//     return;
+//    }
+//    else if(cnt==0)
+//    { if(cnt ==0 && cnt1==0)
+//    {
+//     cout << 0 << nl;
+//     return;
+//    }
+//         cout << (1 << (cnt1-1)) << nl;
+//         return;
+//    }
+   cout <<  (cnt1)*(1ll<<cnt) << nl;
+
 
 }
 
 int main(){
      set_sail;
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

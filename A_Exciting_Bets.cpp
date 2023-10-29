@@ -21,12 +21,19 @@ typedef vector<int> vi;
 #define ever       ;1;
 #define ff         first
 #define ss         second
-
+#define mp make_pair
 void print(auto v2, string s = "")
 {
 	cout<<s;
 	for (int i = 0; i < (int)v2.size(); ++i)
 			cout<< v2[i] <<" ";
+		cout<<"\n";
+}
+void printpv(auto v2, string s = "")
+{
+	cout<<s;
+	for (int i = 0; i < (int)v2.size(); ++i)
+			cout<< v2[i].ff <<" " <<v2[i].ss << nl;
 		cout<<"\n";
 }
 
@@ -43,29 +50,60 @@ void print(auto v2, string s = "")
 
 void solve()
 {
-    int n,k;
-    cin >> n >> k;
-    int f = n;
-    int ans = 0;
-    for(ever)
+    int a,b;
+    a = 3;
+    b = 19;
+    cin >> a >> b;
+    ll x = max(a,b)-min(a,b);
+    ll n = x;
+    int i = 0;
+    if(a>b)
     {
-        if(n-k < 0)
-        {
-            break;
-        }
-        n = n -k+1;
-        ans++;
+        swap(a,b);
     }
-       cout << ans+f << nl;
+    // while(x--)
+    // {
+    //     if(__gcd(a+i,b+i) == n)
+    //     {
+            
+    //         break;
+    //     }
+    //     i++;
+
+    // }
+    if(b%a==0)
+    {
+        cout <<  <<" " << 0 << nl;
+        return;
+    }
+    if(n==0)
+    {
+        cout << 0 <<" "<< 0 << nl;
+    }
+    else if(n==1 )
+    {
+        cout << n <<" "<< 0 << nl;
+    }
+    
+    else
+    cout << n << " " << max(a,b)/min(a,b) << nl;
+   
+    
+   
+
 
 }
 
 int main(){
      set_sail;
-    int t=1;
-    //cin >> t;          // remove '//' for testcase
-    while(t--){
+    int t=1,i=1;
+    cin >> t;
+              // remove '//' for testcase
+    while(t--)
+    {
+        //cout << "Case #" << i<<nl<<nl;
         solve();
+        i++;
     }
     return 0;
 }

@@ -119,28 +119,29 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    for(ever){
+    int n;
+    cin >> n;
+    vi v(n);
+    forcin(v);
+    map<int,int>m;
+    for(auto u : v)
+    {
+        m[u]++;
+    }
+    if(sz(m)>2)NO;
+    else if(sz(m) == 1)YES;
+    else{
+        int x = 0;
+        vi k;
+        for(auto u : m)
+        {
+            //cout << u.S << " ";
+            k.pb(u.S);
+        }
+        if(abs(k[0] - k[1]) > 1)NO;
+        else YES;
+       
 
-    
-        int n;
-        cin >> n;
-        if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
-        }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
-        }
-        cout << sum << nl;
     }
     
 
@@ -150,10 +151,9 @@ int main(){
     
     bismillah
     int t=1;
-    //cin >> t;          // remove '//' for testcase
+    cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }
     return 0;
 }
- 
