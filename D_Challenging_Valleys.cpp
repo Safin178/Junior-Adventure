@@ -147,7 +147,7 @@ void solve(){
             else if(v[0] == v[i])continue;
             else break;
         }
-        reverse(all(v));
+        //reverse(all(v));
         for(int i =1 ;i < sz(v)-1; i++)
         {
             if(v[0] < v[i+1])
