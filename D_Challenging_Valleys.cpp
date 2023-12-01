@@ -133,7 +133,8 @@ void solve(){
     int cnt = 0;
     for(int i= 1;i < n-1; i++)
     {
-        if(v[i-1] > v[i] && v[i] < v[i+1])cnt++;
+        if(v[i-1] > v[i] && v[i] < v[i+1])cnt++; 
+        
          if(v[i] == v[i+1])v[i] = v[i-1];
 
         } 
