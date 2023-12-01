@@ -119,38 +119,38 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
-    cin >> n;
+    int n;cin >> n;
     vi v(n);
     forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    int sum = 0, maxsum=INT32_MIN, cur=0;
+    for(int i = 0; i < sz(v); i++)
     {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+        if(i != sz(v)-1)
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            if((((v[i] % 2)+2)%2) == (((v[i] % 2)+2)%2))
+            {
+                sum += max(v[i],v[i+1]);
+                i++;
+            }
+            else sum += v[i];
+            //((a % b) = (a % b) + b) % b
         }
-          
-    //    auto it= m.rbegin();
+         else sum += v[i];
         
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
+          if(cur > sum ){cur = 0;sum=0;}
+         else cur +=v[i];
        
-
+        
+       // cout <<sum << " ";
+      //  cout << cur << " ";
+        maxsum = max(maxsum,cur);
+       // cout <<sum << " ";
     }
-    
+  
+   
+    cout << maxsum<<nl;
+
+
 
 }
 

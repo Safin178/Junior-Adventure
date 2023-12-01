@@ -121,35 +121,53 @@ void faltu( T arg, const hello &... rest) {
 void solve(){
     int n;
     cin >> n;
-    vi v(n);
+    vi v(n), k ;
     forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    k = v;
+    dbg(k);
+    if(n==1)
     {
-        m[u]++;
+        YES;
+        return;
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+    int cnt = 0;
+    for(int i= 1;i < n-1; i++)
+    {
+        if(v[i-1] > v[i] && v[i] < v[i+1])cnt++;
+         if(v[i] == v[i+1])v[i] = v[i-1];
+
+        } 
+        v = k;
+        for(int i =1 ;i < sz(v)-1; i++)
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            if(v[0] < v[i+1])
+            {
+                cnt++;
+                break;
+            }
+            else if(v[0] == v[i])continue;
+            else break;
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
+        reverse(all(v));
+        for(int i =1 ;i < sz(v)-1; i++)
+        {
+            if(v[0] < v[i+1])
+            {
+                cnt++;
+                break;
+            }
+            else if(v[i] == v[0])continue;
+            else break;
+        }
+        if(*min_element(all(v)) == *max_element(all(v)))
+        {
+            NO;
+            return;
+        }
+        if(cnt == 1)YES;
+        else NO;
 
-    }
+       // cout << cnt << nl;
     
 
 }

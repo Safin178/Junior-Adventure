@@ -123,32 +123,34 @@ void solve(){
     cin >> n;
     vi v(n);
     forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    sort(all(v));
+    int q;
+    cin >> q;
+    while(q--)
     {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
-        }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
+        int x;
+        cin >> x;
+        bool f =0;
+        int l = 0, r = sz(v), m =-1;
+        // while (l<=r)
+        // {
+        //     m = (l+r)/2;
+        //     if(v[m] == x)
+        //     {
+        //         f =1; // ekono upper bound lower bound shiki nai
+        //         // test case deke mone hocce ans milbe
+        //          // cout << l << " "<<m<<" " << r << nl; 
+        //         break;
+        //     }
+        //     else if(v[m] < x) l = m+1;
+        //     else r = m;
+        // }
+        cout << upper_bound(all(v) , x)- v.begin()<<nl; 
        
-
+        
+      //  cout << l+1 << nl;
+      
+        
     }
     
 
@@ -158,7 +160,7 @@ int main(){
     
     bismillah
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

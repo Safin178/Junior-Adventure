@@ -10,14 +10,16 @@ typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
+typedef vector<pll> vll;
 
 #define bismillah ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 #define all(a) (a).begin(),(a).end()
 #define pb push_back 
 #define forcin(n) for(auto &x : n) cin >> x
+#define fori(n) for(auto &x : (n))
 #define forcout(n) for(auto x : n) cout << x << " "
 #define sz(n) (int)n.size()
-#define nl '\n'
+#define el '\n'
 #define YES cout<< "YES\n"
 #define NO cout<< "NO\n"
 #define F first
@@ -25,8 +27,6 @@ typedef pair<ll,ll> pll;
 #define mem(a,b) memset(a,b,sizeof(a))      // 0 n -1 only
 #define gcd(a,b) __gcd(a,b)
 #define set_pre(a) cout.unsetf(ios::floatfield); cout.precision(a); cout.setf(ios::fixed,ios::floatfield);
-#define mp make_pair
-#define ever       ;1;
 
 const double PI = acos(-1);
 const double eps = 1e-9;
@@ -119,46 +119,37 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
-    cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
-    {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+    string s,t,a;
+    cin >> s >> t;
+    int i,n,cnt=0;
+    n=sz(s);
+    for(i=0;i<n;i++){
+        if(s[i]!=t[i]){
+            if(cnt%2==0){
+                a.pb('0');
+            }
+            else{
+                a.pb('1');
+            }
+            cnt++;
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
+        else{
+            a.pb(s[i]);
+        }
     }
-    
-
+    if(cnt%2!=0){
+        cout << "impossible\n";
+    }
+    else{
+        cout << a << el;
+    }
 }
 
 int main(){
     
     bismillah
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

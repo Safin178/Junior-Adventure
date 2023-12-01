@@ -119,39 +119,45 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
+    ll n;
     cin >> n;
-    vi v(n);
+    vl v(n);
     forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+//     ll sum = 0,sum2 = 0;
+//     //sort(all(v));
+//     dbg(v);
+//     // for(int i = 0; i <= 3; i++)
+//     // {
+//     //     cout << i << " ";
+//     //     sum +=(v[i]);
+//     //     sum2 += (v[i+4]);
+//     // }
+//     cout << v.back() - v[0] << nl;
+//     cout << (v[7]+v[6]+v[5]+v[4]) -( v[0]+v[1]+v[2]+v[3])<<nl;
+//   //  cout <<sum2- sum << nl;
+
+    set<int>d;
+    vi k;
+    for(int i =1; i*i <= n; i++)
     {
-        m[u]++;
+        if(n%i==0){d.insert(i);d.insert(n/i);}
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+    for(auto u : d)
+    {
+        k.pb(u);
+    }
+    int ans = INT32_MIN;
+    for(int i =0 ;i < sz(k); i++)
+    {
+        vi t;
+        for(int j = 0; j < sz(v); j+=k[i])
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            t.pb(v[j]);
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
+        dbg(t);
+        ans  = max(ans, abs(*max_element(all(t))-*min_element(all(t))));
     }
-    
-
+    cout << ans << nl;
 }
 
 int main(){

@@ -119,47 +119,60 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
-    cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    stack<string> fro, bak;
+    bak.push("http://www.lightoj.com/");
+    string s;
+    while(1)
     {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+        cin >> s;
+        if(s == "QUIT")break;
+
+        else if(s == "VISIT")
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            string x ;
+            cin >> x;
+            bak.push(x);
+            while (!fro.empty())
+            {
+                fro.pop();
+            } 
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
+        else if(s == "BACK")
+        {
+            if(sz(bak) ==1)
+            {
+                cout << "Ignored\n";
+                continue;
+            }
+
+            fro.push(bak.top());
+            bak.pop();
+        }
+        else 
+        {
+            if(sz(fro) == 0)
+            {
+                cout << "Ignored\n";
+                continue;
+            }
+            bak.push(fro.top());
+            fro.pop();
+        }
+        cout << bak.top() << nl;
 
     }
+
     
 
 }
 
-int main(){
+int main(){ // 30 min current nai ashle AC hoi kina deki
     
     bismillah
-    int t=1;
+    int t=1, Case=0;
     cin >> t;          // remove '//' for testcase
     while(t--){
+         cout << "Case " << ++Case<<":\n";
         solve();
     }
     return 0;

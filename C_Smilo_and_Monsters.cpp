@@ -123,34 +123,19 @@ void solve(){
     cin >> n;
     vi v(n);
     forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    ll sum = 0;
+    sort(all(v));
+    forcout(v);
+    cout << nl;
+    for(int i = 0; i < sz(v); i++)
     {
-        m[u]++;
+        sum += v[i];
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
-        }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
+    if(sum%2==0)
+    {
+        cout << (sum / 2)+1 << nl;
     }
-    
+    else cout << (sum/2)+2 << nl;
 
 }
 

@@ -36,6 +36,12 @@ void printVec(vector<int> v2, string s = "")//vector ke print kore just printVec
 
 void solve()
 {
+    int n;
+    string s;
+    cin >> n >> s;
+    if(n==1 && s=="10"){cout << -1<<nl;return;}
+    cout << s ;
+    for(int i =0; i < n-sz(s); i++)cout << 0;
    
 
 }

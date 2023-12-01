@@ -118,38 +118,41 @@ void faltu( T arg, const hello &... rest) {
 
 
 
-void solve(){
+void solve(){ // editorial deksi, buji nai, then ekjoner ans deksi then oi approach ta bujchi, baki der ta bujtesi na , kar ans? ask me..
     int n;
     cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    string s;
+    cin >> s;
+    map<char,int>m;
+    string a, b;
+    bool f=0;
+
+    for(int i = 0; i < sz(s); i++)
     {
-        m[u]++;
+        // if(m[s[i]] == 0 && f == 0)a.pb(s[i]);
+        // else{
+        //     f=1;
+        //     b.pb(s[i]);
+        // }
+        m[s[i]]++;
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
+  
 
-        }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
+     map<char,int>p;
+    // for(auto u : a)p[u]++;
+    // map<char,int>q;
+    // for(auto u : b)q[u]++;
 
+    int ans =0;
+    for(int i = 0; i < sz(s); i++)
+    {
+        m[s[i]]--;
+        if(m[s[i]] == 0)m.erase(s[i]);
+        p[s[i]]++;
+        int jjk = sz(m)+sz(p);
+        ans =max(ans,jjk);
     }
+    cout <<ans<<nl;
     
 
 }

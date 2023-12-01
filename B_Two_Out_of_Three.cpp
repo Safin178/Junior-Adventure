@@ -123,33 +123,84 @@ void solve(){
     cin >> n;
     vi v(n);
     forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    if( n<=3)
     {
-        m[u]++;
+        cout << -1 << nl;
+        return;
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+    map<int,int> p;
+    for(int i = 0; i <n; i++)
+    {
+        p[v[i]]++;
+    }
+    vector<pii> m;
+    for(auto u : p)
+    {
+        m.pb({u.S, u.F});
+    }
+    sort(all(m));
+    reverse(all(m));
+    if(m[0].F >= 4 || m[0].F < 2)
+    {
+        cout << -1 << nl;
+        return;
+    }
+    // dbg(m);
+    // dbg(v);
+    vi i1, i2;
+        for(int i = 0; i < n; i++)
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            if(v[i] == m[0].S )
+            {
+                i1.pb(i); 
+            }
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
+        for(int i = 0; i < n; i++)
+        {
+            if(v[i] == m[1].S )
+            {
+                i2.pb(i);
+            }
+        }
+        //  forcout(i1);
+        //  cout << " " ;
+        //  forcout(i2);
+        if(sz(i1) == 3)
+        {
+            v[i1[0]] = 1;
+            v[i1[1]] = 2;
+            v[i1[2]] = 1;
+        }
+        else 
+        {
+            v[i1[0]] = 1;
+            v[i1[1]] = 2;
+        }
+         if(sz(i2) == 3)
+        {
+            v[i2[0]] = 2;
+            v[i2[1]] = 3;
+            v[i2[2]] = 2;
+        }
+        else 
+        {
+            v[i2[0]] = 2;
+            v[i2[1]] = 3;
+        }
+        for(int i = 0; i < n; i++)
+        {
+           if((find(all(i1) ,i) == i1.end()) && (find(all(i2),i) == i2.end()))
+           {
+             v[i] =1;
+           }
+        }
+       forcout(v);
+        cout << nl; // ami test ei korte partesi na hoise kina , submit dibo ?
 
-    }
+    
+
+
+   // dbg(p);
     
 
 }

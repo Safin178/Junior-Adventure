@@ -116,40 +116,53 @@ void faltu( T arg, const hello &... rest) {
 
 /*____________________________________________________________________________________________________________________________________*/
 
-
+bool isprime(int x)
+{
+    if(x % 2 == 0 && x != 0) return 0;
+    for(int i = 3; i*i <= x; i++)
+    {
+        if(x % i == 0)return 0;
+    }
+    return 1;
+}
 
 void solve(){
-    int n;
-    cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
    
-    for(auto u : v)
+   
+   int cnt = 0;
+   cin >> cnt;
+   int x = 1, y = cnt-1;
+//    int i =1;
+//    for(int j = 1; j <= cnt;i++)
+//    {
+//         if(isprime(i))
+//         {
+//             string s = to_string(i);
+//             bool f =1;
+//             for(int k = 0; k < sz(s)/2; k++)
+//             {
+//                 if(s[k] != s[sz(s)-k-1])
+//                 {
+//                     f = 0;
+//                     break;
+//                 }
+//             }
+//             if(f)
+//             {
+//                 if(sz(s) % 2 == 0)x++;
+//                 else y++;
+//                 j++;
+//             }
+//         }
+//    }
+    if(cnt < 5)
     {
-        m[u]++;
+        cout << 0 <<" " <<  cnt << nl;
+        return;
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
+    cout << x << " " << y << nl;
 
-        }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
 
-    }
     
 
 }

@@ -123,35 +123,85 @@ void solve(){
     cin >> n;
     vi v(n);
     forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    vi k = v;
+    reverse(all(k));
+   // dbg(k);
+    int x = k[0];
+    for(int i = 1; i < sz(k); i++)
     {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+        if(x < k[i])
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            cout << n - i<<nl;
+            cout << (1 << (int)log2(n))<<nl;
+            ll jk = (1ll << (int)log2(n) );
+            if(jk > (n-i))NO;
+            else YES;
+            
+            return;
+            
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
+        else x = k[i];
+    }
+    cout << " no YES" << nl;
 
+
+}
+void solve2()
+{
+     int n;
+    cin >> n;
+    vi v(n);
+    forcin(v);
+    vi k = v;
+    reverse(all(k));
+   // dbg(k);
+    int x = k[0];
+    vi vk = {1,2,4,8,16,32};
+    vi s;
+    for(int i = 1; i < sz(k); i++)
+    {
+        if(x < k[i])
+        {
+            //cout << n - i<<nl;
+            // cout << log2(n-i)<<nl;
+            // int j = log2(n-i);
+            // double hj = log2(n-i);
+            // for(int k = 0; k < sz(vk);k++ )
+            // {
+            //     if(vk[k] == (n-i))
+            //     {
+            //         YES;
+            //         return;
+            //     }
+            // }
+            //  NO;
+            // return;
+            s.pb(n-i);
+            
+        }
+         x = k[i];
+    }
+   // dbg(s);
+    bool ok =0;
+    for(int i = 0; i < sz(s); i++)
+    {
+        ok =0;
+        for(int k = 0; k < sz(vk);k++ )
+            {
+                if(vk[k] == s[i])
+                {
+                    ok = 1;
+                    break;
+                }
+            }
+            if(ok==0)
+            {
+                NO;
+                return;
+            }
     }
     
-
+    cout << "YES" << nl;
 }
 
 int main(){
@@ -160,7 +210,7 @@ int main(){
     int t=1;
     cin >> t;          // remove '//' for testcase
     while(t--){
-        solve();
+        solve2();
     }
     return 0;
 }

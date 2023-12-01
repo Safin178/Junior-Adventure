@@ -18,8 +18,8 @@ typedef pair<ll,ll> pll;
 #define forcout(n) for(auto x : n) cout << x << " "
 #define sz(n) (int)n.size()
 #define nl '\n'
-#define YES cout<< "YES\n"
-#define NO cout<< "NO\n"
+#define YES cout<< "Yes\n"
+#define NO cout<< "No\n"
 #define F first
 #define S second
 #define mem(a,b) memset(a,b,sizeof(a))      // 0 n -1 only
@@ -121,35 +121,11 @@ void faltu( T arg, const hello &... rest) {
 void solve(){
     int n;
     cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
-    {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
-        }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
-    }
+    string s;
+    cin >> s;
+    if(s.find( "ab") != -1)YES;
+    else if (s.find("ba") != -1)YES;
+    else NO;
     
 
 }
@@ -158,7 +134,7 @@ int main(){
     
     bismillah
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

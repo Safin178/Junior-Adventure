@@ -119,37 +119,49 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
-    cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
-    {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
+    int a, b, c;
+    cin >> a >> b >> c;
+    // if(a != 1 && b != 1 && c != 1)
+    // {
+    //     cout << (a*b*c) << nl;
+    // }
+    // else if(a ==1 &&b == 1 && c == 1)cout << 3 << nl;
+    // else if(a == 1)
+    // {
+    //     cout << (a+b)*c << nl;
+    // }
+    // else if(b == 1)
+    // {
+    //     cout << (min(a,c)+1)*(max(a,c)) << nl;
+    // }
+    // else if(c==1)
+    // {
+    //     cout << a*(b+c) << nl;
+    // }
+    int ans = a + b + c;
+    ans = max(ans, a + (b * c));
+     ans = max(ans, (a + b) * c);
+    ans = max(ans, (a*b)+c);
+   ans = max(ans, a *(b + c));
+    ans = max(ans, a*b*c);
+    cout <<  ans << nl;
 
-        }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
-    }
+    // string s ="+*";
+    // int ans = 0,ct = -1;
+    // for(int i = 0; i < sz(s); i++)
+    // {
+    //     ans = 0;
+    //     for(int j = 0; j < sz(s); j++)
+    //     {
+    //         if(s[j] == '*') ans  = (a * b);
+    //         else ans = (a + b);
+    //         if(s[i] == '*') ans *= (c);
+    //         else ans += (c);
+    //     }
+    //     ct = max(ct,ans);
+    // }
+    // cout << ct << nl;
+    
     
 
 }
@@ -158,7 +170,7 @@ int main(){
     
     bismillah
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

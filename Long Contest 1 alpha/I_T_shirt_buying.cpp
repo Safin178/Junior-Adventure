@@ -121,35 +121,54 @@ void faltu( T arg, const hello &... rest) {
 void solve(){
     int n;
     cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    int p[n+1], f[n+1], b[n+1];
+    for(int i = 1; i <= n; i++) cin >> p[i];
+    for(int i = 1; i <= n; i++) cin >> f[i];
+    for(int i = 1; i <= n; i++) cin >> b[i];
+    int k ;
+    cin >> k;
+    priority_queue<int,vector<int>,greater<int>>q[10][10];
+    for(int i = 1; i <= n; i++)
     {
-        m[u]++;
+        q[f[i]][b[i]].push( p[i]);
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+    //dbg(p);
+
+    while(k--)
+    {
+        int x;
+        cin >> x;
+        int ans = INT_MAX;
+        int fc ,bc;
+        for(int i=1; i <= 3; i++)
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            if(!q[x][i].empty() && q[x][i].top() < ans)
+            {
+                ans = q[x][i].top();
+                fc = x , bc = i;
+            }
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
+        for(int i =1 ; i <= 3 ; i++)
+        {
+            if(!q[i][x].empty() && q[i][x].top() < ans)
+            {
+                ans = q[i][x].top();
+                fc = i , bc = x;
+            }
+        }
+        if(ans == INT_MAX)
+        {
+            cout << -1 << " ";
+            continue;
+        }
          
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
+        
+            cout << ans << " ";
+            q[fc][bc].pop();
+        
     }
+    
+
     
 
 }
@@ -158,7 +177,7 @@ int main(){
     
     bismillah
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

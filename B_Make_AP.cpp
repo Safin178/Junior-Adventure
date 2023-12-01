@@ -119,38 +119,32 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
-    cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    ll a ,b ,c;
+    cin >> a >> b >> c;
+    // if((2*b - c) % a == 0 && (2*b - c) != 0)YES;//cout << 1 << " \n";}
+    // else if((2*b - a) % c == 0 && (2*b - a) != 0)YES;//cout << 2 << " \n";}
+    // else if(((a+c)/2) % (c) == 0 && ((a+c) % 2 == 0))YES;//cout << 3 << " \n";}
+    // else NO;
+    // ediotial porsi
+    int x = b - (c- b);
+    if(x >= a &&  x % a == 0 && x != 0)
     {
-        m[u]++;
+        YES;
+        return;
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
-        }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
+    int y = ((c - a)/2) + a;
+    if(y >= b && y % b == 0 && y!= 0 && (c-a)%2==0) 
+    {
+        YES;
+        return;
     }
-    
+    int z = (b -a) + a +(b-a);
+    if(z>= c && z % c == 0 && z != 0)
+    {
+        YES;
+        return;
+    }
+    else NO;
 
 }
 

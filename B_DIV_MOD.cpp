@@ -119,48 +119,55 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
-    cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+   ll  l ,r ,x;
+    cin >> l >> r >> x;
+    if(l == r)
     {
-        m[u]++;
+        cout << (l/x) + l % x << nl;
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
     else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+        if(r % x == 0)
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            r--;
+            cout <<(r/x) + r % x << nl;
+            return; 
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
+        else
+        {
+            ll m = (r/x)*x;
+            m--;
+            cout << m << " ";
+                if(m < l )
+              cout <<(r/x) + r % x << nl;
+              else{
+                 if(r == (x*(1 +(r/x))-1))
+                 {
+                      cout <<(r/x) + r % x << nl;
+                 }
+                    else cout << (m/x) + m % x << nl;
+              }
+        }
     }
+
+}//// ! WA
+/* right now i have no clue je ki kortesi ki ki hishab korsi, eita baje laghe, ordek code korte
+giye upoer code buli jawa*/
+void editorial()
+{
+    // https://codeforces.com/blog/entry/100712#comment-894134
+    // ei comment and editorial deke buje abr kortesi
     
 
 }
-
 int main(){
     
     bismillah
     int t=1;
     cin >> t;          // remove '//' for testcase
     while(t--){
-        solve();
+        //solve();
+        editorial();
+
     }
     return 0;
 }

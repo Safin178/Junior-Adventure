@@ -119,36 +119,52 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
-    cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    int n , p;
+    cin >> n >> p;
+    deque<int>q;
+    while(p--)
     {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+        string s;
+        cin >> s;
+        if(s == "pushLeft" || s == "pushRight")
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            int x;
+            cin >> x;
+            if(sz(q) >= n)
+            {
+                cout << "The queue is full\n";
+            }
+            else
+            {
+                if(s == "pushRight"){
+                        cout << "Pushed in right: " << x << nl;;
+                     q.push_back( x );
+                }
+                else {
+                    cout << "Pushed in left: "<< x << nl;
+                    q.push_front( x );
+                }
+            }
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
+        else
+        {
+            if(sz(q) == 0)
+            {
+                cout <<"The queue is empty\n"; 
+            }
+            else{
+                if(s == "popLeft")
+                {
+                    cout << "Popped from left: " << q.front() << nl;
+                    q.pop_front();
+                }
+                else
+                {
+                    cout << "Popped from right: " << q.back() << nl;
+                     q.pop_back();
+                }
+            }
+        }
     }
     
 
@@ -157,9 +173,10 @@ void solve(){
 int main(){
     
     bismillah
-    int t=1;
+    int t=1 , Case =0;
     cin >> t;          // remove '//' for testcase
     while(t--){
+        cout << "Case " << ++Case<<":\n"; // eta arif bhaiya er code e deksilam janabo ami pore 
         solve();
     }
     return 0;

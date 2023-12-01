@@ -123,34 +123,19 @@ void solve(){
     cin >> n;
     vi v(n);
     forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    deque<int>d;
+    d.push_back(v[0]);
+    for(int i = 1; i <n; i++)
     {
-        m[u]++;
+        if(v[i] > d.front())d.push_back(v[i]);
+        else d.push_front(v[i]);
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
-        }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
+    while(!d.empty())
+    {
+        cout << d.front() << " ";
+        d.pop_front();
     }
-    
+    cout << nl;
 
 }
 

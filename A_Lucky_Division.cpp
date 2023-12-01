@@ -116,40 +116,50 @@ void faltu( T arg, const hello &... rest) {
 
 /*____________________________________________________________________________________________________________________________________*/
 
-
+bool check(string s)
+{
+    for(int i = 0; i < sz(s); i++)
+    {
+        if(s[i] != '7' && s[i] != '4')
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
 
 void solve(){
     int n;
     cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    int k = n;
+    string x = to_string(n);
+    if(check(x))
     {
-        m[u]++;
+        YES;
+        return;
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+    if(n % 2 != 0)
+    {
+        NO;
+        return;
+    }
+    while(n >4)
+    {
+        n = n/2;
+        if(n % 2 != 0)
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            // x = to_string(n);
+            // if(check(x))YES;
+            // else 
+            NO;
+            return;
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
+        else{
+            x = to_string(n);
+            if(check(x)){YES;return;}
+        }
     }
+    NO;
     
 
 }
@@ -158,7 +168,7 @@ int main(){
     
     bismillah
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

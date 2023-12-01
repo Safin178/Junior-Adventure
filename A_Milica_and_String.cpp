@@ -119,37 +119,51 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
-    cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    int n, k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    int cntb=0;
+    for(int i = 0; i < sz(s); i++)if(s[i]=='B')cntb++;
+    if(cntb==k)
     {
-        m[u]++;
+        cout << 0 << nl;
+        return;
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+    //cout << k << " ";
+    //cout << cntb << " \n";
+    if(cntb < k)
+    {
+        int f=0;
+        for(int i= 0; i < sz(s); i++)
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            if(s[i] =='A')f++;
+            if(k-cntb == f)
+            {
+                cout << 1 << nl;
+                cout << i+1 << " B" << nl;
+                return;
+            }
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
     }
+    else{
+         int f=0;
+        // reverse(all(s));
+         // cout << k << " ";
+   // cout << cntb << " \n";
+
+        for(int i= 0; i < sz(s); i++)
+        {
+            if(s[i] =='B')f++;
+            if(cntb - k == f)
+            {
+                cout << 1 << nl;
+                cout <<  i+1<< " A" << nl;
+                return;
+            }
+        }
+    }
+
     
 
 }

@@ -116,6 +116,15 @@ void faltu( T arg, const hello &... rest) {
 
 /*____________________________________________________________________________________________________________________________________*/
 
+bool isprime(int x)
+{
+    if(x & 2 == 0 && x != 2)return 0;
+    for(int i = 3; i*i<=x; i+=2)
+    {
+        if(x % i == 0)return 0;
+    }
+    return 1;
+}
 
 
 void solve(){
@@ -123,33 +132,18 @@ void solve(){
     cin >> n;
     vi v(n);
     forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    int x, y,  ans = -1;
+   // reverse(all(v));
+    for(int i = sz(v)-1; i >= 0; i--)
     {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+        if(isprime(v[i]))
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            cout << (i+i+2) << nl;
+            return;
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
     }
+        
+    cout << ans << nl;
     
 
 }

@@ -119,37 +119,72 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
+    int n; 
     cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    deque<int>a,b , p ,q;
+    int x;
+    cin >> x;
+    while(x--)
     {
-        m[u]++;
+        int k;
+        cin >> k;
+        a.push_back( k );
     }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
+    cin >> x;
+    while(x--)
+    {
+        int k;
+        cin >> k;
+        b.push_back( k );
+    }
+    p = a, q = b;
+    int cnt = 0;
+   // cout << a.front() << " " << b.front() << nl;
+    while(1)
+    {
+        cnt++;
+        int cuto, boro;
 
+        if(a.front() < b.front())
+        {
+            cuto =a.front();
+            boro = b.front();
+            a.pop_front();
+            b.pop_front();
+            b.push_back(cuto);
+            b.push_back(boro);
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
+        else if(a.front() > b.front())
+        {
+
+            cuto =b.front();
+            boro = a.front();
+            a.pop_front();
+            b.pop_front();
+            a.push_back(cuto);
+            a.push_back(boro);
+        }
+       
+         if(a.empty())
+        {
+            cout << cnt << " " << 2 << nl;
+            break;
+        }
+        else if(b.empty())
+        {
+            cout << cnt << " " << 1 << nl;
+            break;
+        }
+         if(cnt >100)
+        {
+            cout << -1 << nl;
+            return;
+        }
        
 
     }
+
+
     
 
 }
@@ -158,7 +193,7 @@ int main(){
     
     bismillah
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

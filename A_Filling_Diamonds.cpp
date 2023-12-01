@@ -120,36 +120,12 @@ void faltu( T arg, const hello &... rest) {
 
 void solve(){
     int n;
+    //honestly ami bujtesi na fill kemne ki hocce shudu ei formula ta try kortesi
     cin >> n;
-    vi v(n);
-    forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
-    {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
-        {
-            //cout << u.S << " ";
-            k.pb(u.S);
+   // cout << 1LL*((n*(n+1)/2)-(n*(n-1)/2)) <<nl;
+    //case 2 deke felsi :( 
+        cout << n << nl;
 
-        }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
-    }
     
 
 }

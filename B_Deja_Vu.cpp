@@ -119,37 +119,29 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    int n;
-    cin >> n;
-    vi v(n);
+    ll n , q;
+    cin >> n >> q;
+    vl v(n) , k(q);
     forcin(v);
-    map<int,int>m;
-   
-    for(auto u : v)
+    forcin(k);
+   // sort(all(k));
+    ll x =0;
+    for(ll  i = 0; i< q; i++)
     {
-        m[u]++;
-    }
-    if(sz(m)>2)NO;
-    else if(sz(m) == 1)YES;
-    else{
-        int x = 0;
-        vi k;
-        for(auto u : m)
+        x = 1LL << k[i];
+        for(ll j = 0; j < n; j++)
         {
-            //cout << u.S << " ";
-            k.pb(u.S);
-
+            
+            if(v[j] % x == 0)
+            {
+                v[j] += (x >> 1);
+               
+            }
         }
-          
-    //    auto it= m.rbegin();
-        
-    //     cout << (*(++it)).S << nl;
-         
-        if(abs(k[0] - k[1]) > 1)NO;
-        else YES;
-       
-
     }
+    forcout(v);
+    cout << nl;
+
     
 
 }
