@@ -124,7 +124,7 @@ void solve(){
     vi v(n), k ;
     forcin(v);
     k = v;
-    dbg(k);
+   // dbg(k);
     if(n==1)
     {
         YES;
@@ -136,8 +136,9 @@ void solve(){
         if(v[i-1] > v[i] && v[i] < v[i+1])cnt++; 
          if(v[i] == v[i+1])v[i] = v[i-1];
         } 
+       // cout  << cnt << nl;
         v = k;
-        for(int i =1 ;i < sz(v)-1; i++)
+        for(int i =0 ;i < sz(v)-1; i++)
         {
             if(v[0] < v[i+1])
             {
@@ -147,8 +148,9 @@ void solve(){
             else if(v[0] == v[i])continue;
             else break;
         }
-        //reverse(all(v));
-        for(int i =1 ;i < sz(v)-1; i++)
+      //  cout  << cnt << nl;
+        reverse(all(v));
+        for(int i =0 ;i < sz(v)-1; i++)
         {
             if(v[0] < v[i+1])
             {
@@ -163,6 +165,7 @@ void solve(){
             NO;
             return;
         }
+        //cout  << cnt << nl;
         if(cnt == 1)YES;
         else NO;
 
