@@ -134,9 +134,7 @@ void solve(){
     for(int i= 1;i < n-1; i++)
     {
         if(v[i-1] > v[i] && v[i] < v[i+1])cnt++; 
-        
          if(v[i] == v[i+1])v[i] = v[i-1];
-
         } 
         v = k;
         for(int i =1 ;i < sz(v)-1; i++)
