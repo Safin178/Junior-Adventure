@@ -119,33 +119,29 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
+
+    // 4
+    // 1 2 4 7 ei case e NO hobe
     int n;
     cin >> n;
     vi v(n);
     forcin(v);
-    int m;
-    cin >> m;
-    vi k(m);
-    forcin(k);
-    ll sum = 0,ans;
-    vi a, b;
-    a.pb(sum);
-    for(int i = 0; i < sz(v); i++)
+    int cnt = 0 ,cnt3 = 0;
+    for(int i = 0; i < n-1;i++)
     {
-        sum += v[i];
-        a.pb(sum);
+        if(abs(v[i]-v[i+1]) > 3)
+        {
+            NO;
+            return;
+        }
+        else if(abs(v[i]-v[i+1]) == 2)cnt++;
+        else if(abs(v[i]-v[i+1]) == 3)cnt3++;
     }
-    partial_sum(all(v),v.begin());
-   dbg(v);
-    sum = 0;
-    b.pb(sum);
-     for(int i = 0; i < sz(k); i++)
-    {
-        sum += k[i];
-        b.pb(sum);
-    }
-    cout << max(0,*max_element(all(a))+*max_element(all(b)))<<nl;
-   //dbg(a,b);
+    if(cnt > 2)NO;
+    else if(cnt3 == 1 && cnt  > 0)NO;
+    else if(cnt3>1)NO;
+    else
+    YES;
     
 
 }

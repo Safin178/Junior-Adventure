@@ -121,31 +121,30 @@ void faltu( T arg, const hello &... rest) {
 void solve(){
     int n;
     cin >> n;
-    vi v(n);
-    forcin(v);
-    int m;
-    cin >> m;
-    vi k(m);
-    forcin(k);
-    ll sum = 0,ans;
-    vi a, b;
-    a.pb(sum);
-    for(int i = 0; i < sz(v); i++)
+    vi v;
+    if(n==2)
     {
-        sum += v[i];
-        a.pb(sum);
+        cout << -1 << nl;
+        return;
     }
-    partial_sum(all(v),v.begin());
-   dbg(v);
-    sum = 0;
-    b.pb(sum);
-     for(int i = 0; i < sz(k); i++)
+    for(int i = 1; i <= (n*n); i++)
     {
-        sum += k[i];
-        b.pb(sum);
+        if(i % 2 != 0)v.pb(i);
     }
-    cout << max(0,*max_element(all(a))+*max_element(all(b)))<<nl;
-   //dbg(a,b);
+    for(int i = 1; i <= (n*n); i++)
+    {
+        if(i % 2 == 0)v.pb(i);
+    }
+
+    for(int i = 0; i < sz(v) ; i++)
+    {
+        
+        cout << v[i] << " ";
+        if((i+1) % n == 0)cout << nl;
+
+    }
+    
+
     
 
 }
