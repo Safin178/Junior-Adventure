@@ -119,44 +119,19 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    // soln form tawarat bhai // https://codeforces.com/contest/1760/submission/181951948
-    int n;
-    cin >> n;
-    vi v(n) , k;
-    forcin(v);
-    // k.pb(v[0]);
-    // for(int i = 1; i < sz(v); i++)
-    // {
-    //     if(v[i] == v[i-1])continue;
-    //     else k.pb(v[i]);
-    // }
-    // //dbg(k);
-    // int cnt = 0;
-    // for(int i = 0; i < sz(k); i++)
-    // {
-    //     if((i == 0 || k[i-1] >k[i] ) && (i == sz(k)-1 || k[i] < k[i+1])) // error keno astese na karon i == sz(k)-1 true hoye jacce then baki ta check kortese na same for i == 0
-    //     {cnt++;}
-    // }
-    // if(cnt == 1)YES;
-    // else NO;
-    int y = 0;
-    /*
-        1 >  upor theke niche namle no problem
-        2> niche nami upore utlei no problem
-        3> niche nami upore ute abt namle problem
-        4 > direct utte takle no problem but rise kore niche namlei problem
-    
-    */
-    for(int i = 0 ; i < sz(v)-1; i++)
+    int n , m;
+    cin >> n >> m;
+    ll l = ceil(n/2.0);
+    ll h  = n;
+    ll x = ceil((double)l / (double)m);
+    x *= m;
+    //cout << l << " " << x << " " << h << nl;
+    if(x >= l && x <= h)
     {
-        if(y && v[i] > v[i+1])
-        {
-            NO;
-            return;
-        }
-        else if(v[i] < v[i+1])y=1; 
+        cout << x << nl;
     }
-    YES;
+    else cout << -1 << nl;
+   // if()
 
     
 
@@ -166,10 +141,9 @@ int main(){
     
     bismillah
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }
     return 0;
 }
-
