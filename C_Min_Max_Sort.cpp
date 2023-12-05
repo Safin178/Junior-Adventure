@@ -119,52 +119,47 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    /*
-        Wa'Alaikumussalam Warahmatullah.
-
-        1) t = "a". 
-        eta diye string er kono change hobe na. So output 1
-
-        2) t != "a" & t contains 'a'. 
-        string s er jekono ekta index replace kore t boshaleo new ekta 'a' chole ashtese. eta infinitely choltei thakbe. total number of 'a's in string s always same thakbe. So output -1
-
-        3) t doesn't contain 'a'. 
-        Let say, s = "aaa". t = "b"
-        ekhane s er 3 ta index change korte parben: 0, 1, 2. 
-        index 0 use korle new string "baa"
-        index 1 use korle "aba"
-        index 0 & 1 use korle "bba"
-        index 0, 1, 2 use korle "bbb"
-        ar kono index use na korle "aaa"
-
-        So, question ta evabe korte pari: ekhane total kotovabe index gula use korte partesen? etai answer. 
-        in this case, 2^3 = 8 ta way paben: {}, {0}, {1}, {2}, {0, 1}, {0, 2}, {1, 2}, {0, 1, 2}.
-
-        whatever t is, doesn't matter. [ Arif bhaiya ]..
-    */
-    string s, p;
-    cin >> s >> p;
-    
-    int x , y;
-    x = count(all(s),'a');
-    y = count(all(p),'a');
-    if(p == "a" || x == 0)
+    int n;
+    cin >> n;
+    vi v(n);
+    forcin(v);
+    bool f = 0;
+    for(int i = 0; i < sz(v); i++)
     {
-        cout << 1<< nl;
+        if((i+1) != v[i])
+        {
+            f= 1;
+            break;
+        }
+    }
+    if(f == 0)
+    {
+        cout << 0 << nl;
         return;
     }
-    else if(x>=1 && y>=1)
+    int ans = n/2;
+    int x ,y;
+    x = n/2;
+    y = x+1;
+    if(n % 2 != 0)y++;
+    for(int i = 0 ;i < sz(v)/2;i++)
     {
-        cout << -1<<nl;
+        //cout << x << " " << y<<nl;
+        if((v[i] == x || v[i] == y) && (v[n-i-1] == x || v[n-i-1] == y))
+        {
+            ans--;
+            x--;
+            y++;
+        }
+        else break;
+    }
+    if(ans == 0)
+    {
+        cout << (n/2)-1 << nl;
         return;
     }
-    else cout << (1LL <<x) << nl;
-    
-    
-    
-
-    
-
+    else
+    cout << ans << nl;
     
 
 }

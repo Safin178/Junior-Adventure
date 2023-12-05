@@ -119,51 +119,77 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    /*
-        Wa'Alaikumussalam Warahmatullah.
-
-        1) t = "a". 
-        eta diye string er kono change hobe na. So output 1
-
-        2) t != "a" & t contains 'a'. 
-        string s er jekono ekta index replace kore t boshaleo new ekta 'a' chole ashtese. eta infinitely choltei thakbe. total number of 'a's in string s always same thakbe. So output -1
-
-        3) t doesn't contain 'a'. 
-        Let say, s = "aaa". t = "b"
-        ekhane s er 3 ta index change korte parben: 0, 1, 2. 
-        index 0 use korle new string "baa"
-        index 1 use korle "aba"
-        index 0 & 1 use korle "bba"
-        index 0, 1, 2 use korle "bbb"
-        ar kono index use na korle "aaa"
-
-        So, question ta evabe korte pari: ekhane total kotovabe index gula use korte partesen? etai answer. 
-        in this case, 2^3 = 8 ta way paben: {}, {0}, {1}, {2}, {0, 1}, {0, 2}, {1, 2}, {0, 1, 2}.
-
-        whatever t is, doesn't matter. [ Arif bhaiya ]..
-    */
-    string s, p;
-    cin >> s >> p;
-    
-    int x , y;
-    x = count(all(s),'a');
-    y = count(all(p),'a');
-    if(p == "a" || x == 0)
+    int n;
+    cin >> n;
+    char c;
+    cin >> c;
+    string s;
+    cin >> s;
+    // int cnt2= 0;
+    // int cnt = 0, d= 0;
+    // bool f = 0;
+    // for(int i = 0 ; i < sz(s); i++)
+    // {
+       
+    //      if(f == 1)
+    //     {
+    //         if(s[i] == 'g')
+    //         {
+    //             d++;
+    //             if(d == 1){cnt = 0;f=0;}
+    //             if(d == 2)
+    //             {
+    //                 cout << cnt << nl;
+    //                 return;
+    //             }
+    //            // f =0;
+    //         }
+    //         cnt++;
+    //     }
+    //      if(s[i] == c)f=1;
+    // }
+    // for(int i = 0 ; i < sz(s); i++)
+    // {
+       
+    //     if(f == 1)
+    //     {
+    //         if(s[i] == 'g')
+    //         {
+    //             cout << cnt << nl;
+    //             return;
+    //         }
+    //         cnt++;
+    //     }
+         
+    // }
+    //i think problem ta bhul bujchi new way te try kori
+    int x;
+    int cnt =0,ans = 0;
+    bool f = 1 ,gate = 0;
+    for(int i = 0; i < sz(s); i++)
     {
-        cout << 1<< nl;
-        return;
-    }
-    else if(x>=1 && y>=1)
-    {
-        cout << -1<<nl;
-        return;
-    }
-    else cout << (1LL <<x) << nl;
-    
-    
-    
+        if(s[i] == 'g' && f == 1)
+        {
+            x = i;
+            f=0;
+        }
+         if(s[i] == c)gate = true;
+        if(gate)
+        {
+            cnt++;
+            if(s[i] == 'g')
+            {
+                cnt = 0;
+                gate = false;
+            }
+            
 
-    
+        }
+       
+        ans =max(ans,cnt);
+    }
+    ans =max(ans,cnt+x);
+    cout << ans << nl;
 
     
 

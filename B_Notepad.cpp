@@ -119,53 +119,63 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    /*
-        Wa'Alaikumussalam Warahmatullah.
 
-        1) t = "a". 
-        eta diye string er kono change hobe na. So output 1
-
-        2) t != "a" & t contains 'a'. 
-        string s er jekono ekta index replace kore t boshaleo new ekta 'a' chole ashtese. eta infinitely choltei thakbe. total number of 'a's in string s always same thakbe. So output -1
-
-        3) t doesn't contain 'a'. 
-        Let say, s = "aaa". t = "b"
-        ekhane s er 3 ta index change korte parben: 0, 1, 2. 
-        index 0 use korle new string "baa"
-        index 1 use korle "aba"
-        index 0 & 1 use korle "bba"
-        index 0, 1, 2 use korle "bbb"
-        ar kono index use na korle "aaa"
-
-        So, question ta evabe korte pari: ekhane total kotovabe index gula use korte partesen? etai answer. 
-        in this case, 2^3 = 8 ta way paben: {}, {0}, {1}, {2}, {0, 1}, {0, 2}, {1, 2}, {0, 1, 2}.
-
-        whatever t is, doesn't matter. [ Arif bhaiya ]..
-    */
-    string s, p;
-    cin >> s >> p;
+    int n;
+    cin >> n;
+    string s , p;
+    cin >> s;
+    map<string,int>m ,q;
+    // p = "";
+    // p+= s[0];
+    // p += s[1];
+    // m[p]++;
     
-    int x , y;
-    x = count(all(s),'a');
-    y = count(all(p),'a');
-    if(p == "a" || x == 0)
+    for(int i = 0; i < sz(s)-1; i+=2)
     {
-        cout << 1<< nl;
-        return;
+
+        string k = "";
+        k += s[i];
+        k+= s[i+1];
+        // if(p == k)
+        // {
+        //     p = k;
+        //     continue;
+        // }
+        // p = k;
+        m[k]++;
     }
-    else if(x>=1 && y>=1)
+    for(auto u : m)
     {
-        cout << -1<<nl;
-        return;
+        if(u.S > 1)
+        {
+            YES;
+            return;
+        }
     }
-    else cout << (1LL <<x) << nl;
-    
-    
-    
+     for(int i = 1; i < sz(s)-1; i+=2)
+    {
 
-    
+        string k = "";
+        k += s[i];
+        k+= s[i+1];
+        // if(p == k)
+        // {
+        //     p = k;
+        //     continue;
+        // }
+        // p = k;
+        q[k]++;
+    }
+    for(auto u : q)
+    {
+        if(u.S > 1)
+        {
+            YES;
+            return;
+        }
+    }
 
-    
+    NO;
 
 }
 

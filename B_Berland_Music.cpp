@@ -119,52 +119,41 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    /*
-        Wa'Alaikumussalam Warahmatullah.
-
-        1) t = "a". 
-        eta diye string er kono change hobe na. So output 1
-
-        2) t != "a" & t contains 'a'. 
-        string s er jekono ekta index replace kore t boshaleo new ekta 'a' chole ashtese. eta infinitely choltei thakbe. total number of 'a's in string s always same thakbe. So output -1
-
-        3) t doesn't contain 'a'. 
-        Let say, s = "aaa". t = "b"
-        ekhane s er 3 ta index change korte parben: 0, 1, 2. 
-        index 0 use korle new string "baa"
-        index 1 use korle "aba"
-        index 0 & 1 use korle "bba"
-        index 0, 1, 2 use korle "bbb"
-        ar kono index use na korle "aaa"
-
-        So, question ta evabe korte pari: ekhane total kotovabe index gula use korte partesen? etai answer. 
-        in this case, 2^3 = 8 ta way paben: {}, {0}, {1}, {2}, {0, 1}, {0, 2}, {1, 2}, {0, 1, 2}.
-
-        whatever t is, doesn't matter. [ Arif bhaiya ]..
-    */
-    string s, p;
-    cin >> s >> p;
-    
-    int x , y;
-    x = count(all(s),'a');
-    y = count(all(p),'a');
-    if(p == "a" || x == 0)
+    int n;
+    cin >> n;
+    vi v(n);
+    forcin(v);
+    string s;
+    cin >> s;
+    vi a, b;
+    for(int i = 0; i < sz(v); i++)
     {
-        cout << 1<< nl;
-        return;
+        if(s[i] == '0')a.pb(v[i]);
+        else b.pb(v[i]);
     }
-    else if(x>=1 && y>=1)
+    sort(all(a));
+    sort(all(b));
+    map<int,int>m;
+    int cnt = 0;
+    for(int i = 0; i < sz(a); i++)
     {
-        cout << -1<<nl;
-        return;
+         cnt++;
+        m[a[i]] = cnt;
+       
     }
-    else cout << (1LL <<x) << nl;
-    
-    
-    
-
-    
-
+     for(int i = 0; i < sz(b); i++)
+    {
+        cnt++;
+        m[b[i]] = cnt;
+        
+    }
+    for(int i =  0; i < sz(v); i++)
+    {
+        cout << m[v[i]] << " ";
+    }
+    //dbg(m);
+    //dbg(a,b);
+    cout << nl;
     
 
 }

@@ -119,52 +119,25 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    /*
-        Wa'Alaikumussalam Warahmatullah.
-
-        1) t = "a". 
-        eta diye string er kono change hobe na. So output 1
-
-        2) t != "a" & t contains 'a'. 
-        string s er jekono ekta index replace kore t boshaleo new ekta 'a' chole ashtese. eta infinitely choltei thakbe. total number of 'a's in string s always same thakbe. So output -1
-
-        3) t doesn't contain 'a'. 
-        Let say, s = "aaa". t = "b"
-        ekhane s er 3 ta index change korte parben: 0, 1, 2. 
-        index 0 use korle new string "baa"
-        index 1 use korle "aba"
-        index 0 & 1 use korle "bba"
-        index 0, 1, 2 use korle "bbb"
-        ar kono index use na korle "aaa"
-
-        So, question ta evabe korte pari: ekhane total kotovabe index gula use korte partesen? etai answer. 
-        in this case, 2^3 = 8 ta way paben: {}, {0}, {1}, {2}, {0, 1}, {0, 2}, {1, 2}, {0, 1, 2}.
-
-        whatever t is, doesn't matter. [ Arif bhaiya ]..
-    */
-    string s, p;
-    cin >> s >> p;
-    
-    int x , y;
-    x = count(all(s),'a');
-    y = count(all(p),'a');
-    if(p == "a" || x == 0)
+    int m , d;
+    cin >> m >> d;
+    int y, mm,dd;
+    cin >> y >> mm >> dd;
+    int ans1,ans2,ans3;
+    ans1 = y;
+    ans2 = mm ;
+     ans3 = dd;
+    if(dd == d)
     {
-        cout << 1<< nl;
-        return;
-    }
-    else if(x>=1 && y>=1)
-    {
-        cout << -1<<nl;
-        return;
-    }
-    else cout << (1LL <<x) << nl;
-    
-    
-    
-
-    
-
+        ans3 = 1;
+        if(ans2 == m)
+        {
+            ans2 = 1;
+            ans1++;
+        }
+        else ans2 = mm+1;
+    }else ans3 = dd+1;
+    cout << ans1 << " " << ans2 << " " << ans3 << nl;
     
 
 }
@@ -173,7 +146,7 @@ int main(){
     
     bismillah
     int t=1;
-    cin >> t;          // remove '//' for testcase
+    //cin >> t;          // remove '//' for testcase
     while(t--){
         solve();
     }

@@ -119,51 +119,59 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    /*
-        Wa'Alaikumussalam Warahmatullah.
-
-        1) t = "a". 
-        eta diye string er kono change hobe na. So output 1
-
-        2) t != "a" & t contains 'a'. 
-        string s er jekono ekta index replace kore t boshaleo new ekta 'a' chole ashtese. eta infinitely choltei thakbe. total number of 'a's in string s always same thakbe. So output -1
-
-        3) t doesn't contain 'a'. 
-        Let say, s = "aaa". t = "b"
-        ekhane s er 3 ta index change korte parben: 0, 1, 2. 
-        index 0 use korle new string "baa"
-        index 1 use korle "aba"
-        index 0 & 1 use korle "bba"
-        index 0, 1, 2 use korle "bbb"
-        ar kono index use na korle "aaa"
-
-        So, question ta evabe korte pari: ekhane total kotovabe index gula use korte partesen? etai answer. 
-        in this case, 2^3 = 8 ta way paben: {}, {0}, {1}, {2}, {0, 1}, {0, 2}, {1, 2}, {0, 1, 2}.
-
-        whatever t is, doesn't matter. [ Arif bhaiya ]..
-    */
-    string s, p;
-    cin >> s >> p;
-    
-    int x , y;
-    x = count(all(s),'a');
-    y = count(all(p),'a');
-    if(p == "a" || x == 0)
+    int n;
+    cin >> n;
+    deque<int> d;
+    vi v;
+    for(int i =1; i <= n; i++)v.pb(i);
+    if(n % 2 == 0)
     {
-        cout << 1<< nl;
-        return;
+        bool f = 1;
+        int y = n-2;
+        int x = y-1;
+        d.pb(1);
+        for(int i = 0; i < (n/2)-1; i++,y-=2,x-=2)
+        {
+            if(f == 0)
+            {
+                d.push_front(v[y]);
+                d.push_back(v[x]);
+            }
+            else
+            {
+                 d.push_back(v[y]);
+                d.push_front(v[x]);
+            }
+            f = !f;
+        }
+        d.pb(n);
+        forcout(d);
+        cout << nl;
     }
-    else if(x>=1 && y>=1)
+    else
     {
-        cout << -1<<nl;
-        return;
+        bool f = 1;
+        int y = n-2;
+        int x = y-1;
+        d.pb(1);
+        for(int i = 0; i < (n/2)-1; i++,y-=2,x-=2)
+        {
+            if(f == 0)
+            {
+                d.push_front(v[y]);
+                d.push_back(v[x]);
+            }
+            else
+            {
+                 d.push_back(v[y]);
+                d.push_front(v[x]);
+            }
+            f = !f;
+        }
+        d.pb(n);
+        forcout(d);
+        cout << nl;
     }
-    else cout << (1LL <<x) << nl;
-    
-    
-    
-
-    
 
     
 
