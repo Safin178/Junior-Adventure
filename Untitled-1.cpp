@@ -116,32 +116,28 @@ void faltu( T arg, const hello &... rest) {
 
 /*____________________________________________________________________________________________________________________________________*/
 
+bool cmp(pll a, pll b)
+{
+    if(a.F + a.S == b.F + b.S) return a.S > b.S;
+       // cout << (a.F + a.S < b.F + b.S) << nl;
+     return a.F + a. S > b.F + b.S;
+}
 
 
 void solve(){
-    for(ever){
+    int n;
+    cin >> n;
+    vector<pll> v;
 
-    
-        int n;
-        cin >> n;
-        if(n==0)break;
-        vi v(n);
-        forcin(v);
-        priority_queue<int,vector<int>,greater<int>>p;
-        for(auto u : v){
-            p.push( u );
-        }
-        ll sum = 0;
-        while(sz(p)> 1){
-            int x = p.top();
-            p.pop();
-            x += p.top();
-            p.pop();
-            sum += x;
-            p.push(x);
-        }
-        cout << sum << nl;
+    for(int i = 0; i < n; i++)
+    {
+        int x, y;
+        cin >> x >> y;
+        v.pb({x,y});
     }
+    sort(all(v),cmp);
+    dbg(v);
+
     
 
 }
@@ -156,4 +152,3 @@ int main(){
     }
     return 0;
 }
- 

@@ -122,31 +122,45 @@ void solve(){
     int n;cin >> n;
     string s;
     cin >> s;
-    stack<char>p;
-    ll ans = INT32_MAX;
-    for(int i = 0; i < sz(s); i++)
-    {
-        if(p.empty())p.push(s[i]);
-        else if(p.top() != s[i])
-        {
-            p.pop();
-        }
-        else p.push(s[i]);
-    }
-    reverse(all(s));
-    while(!p.empty())p.pop();
-  
-    for(int i = 0; i < sz(s); i++)
-    {
-        if(p.empty())p.push(s[i]);
-        else if(p.top() != s[i])
-        {
-            p.pop();
-        }
-        else p.push(s[i]);
-    }
-    while(!p.empty())p.pop();
+   /*
+    Walaikumussalam warahmatullah. 
 
+    character gular maximum frequency/count ber korben. let say, eta mx. 
+    "aabc" ekhane mx=2 ('a' 2 bar ache, etai highest frequency)
+
+    1) mx <= n/2:
+    string er all pair of characters remove kora possible. odd length er khetre 1 ta thakbe pair chara.
+     So, even length hole answer 0 and odd hole 1
+
+    2) mx > n/2
+    kichu case analysis korlei easily solution approach kora possible. concept similar. Egula dekhte paren:
+    "aaabb" 1
+    "aaaab" 3
+    "aaaabb" 2
+    "aaaaab" 4
+    by Arif bhai
+   */
+    /*
+        aaccccbaaaa ans ig 3
+        aaaacaaabaabbaaaccc 5
+        aaaaabb 1
+        আন্সার বের করো! ans এর সাথে existing  char গুলো freq রিলেটেড করো! এটাই সর্বোচ্চ হিন্ট!
+       by Nayeem bhai
+    */ // arif bhai er ta deke deke korsi deki AC hoi kina
+    
+   map<char,int>m;
+   for(auto u:s)m[u]++;
+   int cnt = 0;
+   for(auto u : m) cnt = max(cnt,u.S);
+   if(cnt <= n/2)
+   {
+        if(n % 2 == 0) cout << 0 << nl;
+        else cout << 1 << nl;
+   }
+   else
+   {
+        cout << cnt - (n - cnt) << nl;
+   }
      
  
 

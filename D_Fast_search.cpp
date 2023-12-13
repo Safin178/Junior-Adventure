@@ -119,36 +119,43 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    ll n;
+    int n;
     cin >> n;
-    vl v(n);
+    vi v(n);
     forcin(v);
     sort(all(v));
-    reverse(all(v));    
-        
-    // if(v.back() < ( 1LL * v[sz(v)-2]+v[sz(v)-3]) && sz(v) == 3)
-    // {
-    //     YES;
-    //     return;
-    // }
-    // else if(v.back() < ( 1LL * v[sz(v)-2]+v[sz(v)-4]))
-    // {
-    //     NO;
-    // }
-    // else if(v.back() < ( 1LL * v[sz(v)-2]+v[sz(v)-3]))YES;
-    // else NO;
-    // test 21 deksi ekn
-    for(int i = 0; i < sz(v)-2; i++)
+    int q;
+    cin >> q;
+    while(q--)
     {
-        if(v[i] < v[i+1]+v[i+2])
+        int lp , rp;
+        cin >> lp >> rp;
+        //cout << upper_bound(all(v),rp)- lower_bound(all(v),lp) << " "; // test kori ei line e ans sesh kina
+        // success now practice kori real impl
+        // ! searching lp er lower_bound
+        int up , lw;
+        int l = -1, r = n;
+        while(l+1 < r)
         {
-            YES;
-            return;
+            int m = (l+r) / 2;
+            if(v[m] >= lp) r = m;
+            else l = m;
         }
-    }
-    NO;
+        lw = r;
+         // ! searching rp er upper_bound
+         
+         l = -1, r = n;
+        while(l+1 < r)
+        {
+            int m = (l+r) / 2;
+            if(v[m] > rp) r = m;
+            else l = m;
+        }
+        up = r;
+        cout << up -lw << " ";
 
-   // cout << nl;
+    }
+
     
 
 }

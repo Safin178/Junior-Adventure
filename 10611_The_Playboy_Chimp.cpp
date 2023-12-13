@@ -119,36 +119,47 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    ll n;
+    int n;
     cin >> n;
-    vl v(n);
+    vi v(n);
     forcin(v);
+    int q;
     sort(all(v));
-    reverse(all(v));    
-        
-    // if(v.back() < ( 1LL * v[sz(v)-2]+v[sz(v)-3]) && sz(v) == 3)
-    // {
-    //     YES;
-    //     return;
-    // }
-    // else if(v.back() < ( 1LL * v[sz(v)-2]+v[sz(v)-4]))
-    // {
-    //     NO;
-    // }
-    // else if(v.back() < ( 1LL * v[sz(v)-2]+v[sz(v)-3]))YES;
-    // else NO;
-    // test 21 deksi ekn
-    for(int i = 0; i < sz(v)-2; i++)
+    cin >> q;
+    while(q--)
     {
-        if(v[i] < v[i+1]+v[i+2])
+        int x;
+        cin >> x;
+        int u,low;
+        int l = -1;
+        int r = n;
+        while(l+1<r)
         {
-            YES;
-            return;
+            int m = (l+r)/2;
+            if(v[m] >= x) r = m;
+            else l = m;
         }
-    }
-    NO;
+        low = r;
+        l =-1,r = n;
+          while(l+1<r)
+        {
+            int m = (l+r)/2;
+            if(v[m] > x) r = m; // template abr deka lagse falto
+            else l = m;
+        }
+        u = r;
+       //dbg(u,low);
 
-   // cout << nl;
+        if(low == u && u == n)
+        {
+            cout << v[u-1] << " X\n";
+        }
+        else cout << v[low-1] << " " << v[u] << nl;
+
+
+    }
+
+    
     
 
 }

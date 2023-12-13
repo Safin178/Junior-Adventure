@@ -119,36 +119,24 @@ void faltu( T arg, const hello &... rest) {
 
 
 void solve(){
-    ll n;
-    cin >> n;
-    vl v(n);
+     int n, k;
+    cin >> n >> k;
+    vi v(n);
     forcin(v);
-    sort(all(v));
-    reverse(all(v));    
-        
-    // if(v.back() < ( 1LL * v[sz(v)-2]+v[sz(v)-3]) && sz(v) == 3)
-    // {
-    //     YES;
-    //     return;
-    // }
-    // else if(v.back() < ( 1LL * v[sz(v)-2]+v[sz(v)-4]))
-    // {
-    //     NO;
-    // }
-    // else if(v.back() < ( 1LL * v[sz(v)-2]+v[sz(v)-3]))YES;
-    // else NO;
-    // test 21 deksi ekn
-    for(int i = 0; i < sz(v)-2; i++)
+    while (k--) // upper - bound problem mone hocce naile to mile na
     {
-        if(v[i] < v[i+1]+v[i+2])
-        {
-            YES;
-            return;
-        }
+        int x ; cin >> x;
+       int l = -1;
+       int r = n;
+       
+       while(l+1 < r) // l , r pasha pashi
+       {
+        int m = (l+r)/2;
+         if(v[m] > x) r = m;
+         else l = m;
+       }
+       cout << r << nl; 
     }
-    NO;
-
-   // cout << nl;
     
 
 }
